@@ -1,5 +1,4 @@
-# ⚡ PowerBench  
-### A Benchmark for Agentic Retrieval and Reasoning in Power Systems
+# ⚡ PowerBench:A Benchmark for Agentic Retrieval and Reasoning in Power Systems
 
 <p align="center">
   <img src="https://img.shields.io/badge/Domain-Power%20Systems-0F766E?style=flat-square&logo=lightning&logoColor=white" alt="Power Systems">
