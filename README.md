@@ -326,6 +326,7 @@ The paper evaluation includes nine LLMs:
 | Llama-4-Maverick      |
 
 ### 🤖 Model Evaluated Results
+<!--
 <p align="center">
   <img src="./figs/results.png" width="90%" alt="Overview of the three PowerBench task families">
 </p>
@@ -333,7 +334,7 @@ The paper evaluation includes nine LLMs:
 <p align="center">
   <img src="./figs/results2.png" width="90%" alt="Overview of the three PowerBench task families">
 </p>
-
+-->
 Capability profiles: `figs/radar.png`.
 
 <p align="center">
