@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+output/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Full local corpora (keep data/demo/{models,raw}/ only in git).
+/models/
+/raw/
+# Private translation toolkit / workspace (not for public release).
+/PowerBench-Translate/
+/work/
+/翻译方案.md

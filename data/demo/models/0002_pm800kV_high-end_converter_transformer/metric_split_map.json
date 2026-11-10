@@ -1,0 +1,28 @@
+{
+  "oil_dga_group": [
+    "oil_dga_h2",
+    "oil_dga_ch4",
+    "oil_dga_c2h6",
+    "oil_dga_c2h4",
+    "oil_dga_c2h2",
+    "oil_dga_co",
+    "oil_dga_co2",
+    "oil_dga_total_hydrocarbon"
+  ],
+  "oltc_status_group": [
+    "oltc_tap_position",
+    "oltc_operation_count",
+    "oltc_motor_status",
+    "oltc_overall_status"
+  ],
+  "body_attachment_pressure_density_group": [
+    "transformer_body_pressure",
+    "conservator_pressure",
+    "bushing_pressure"
+  ],
+  "cooling_water_params_group": [
+    "cooling_water_temp",
+    "cooling_water_pressure",
+    "cooling_water_flow"
+  ]
+}

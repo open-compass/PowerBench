@@ -1,0 +1,1196 @@
+{
+  "model_name": "0002_pm800kV_high-end_converter_transformer",
+  "device_name": "Jinping Converter Station Pole-1 ±800kV High-End Converter Transformer Phase-A Unit-1 Primary",
+  "device_index": 0,
+  "device_fields_override": {
+    "connection_type": "Y/Y",
+    "cooling_method": "forced_oil_forced_air",
+    "bushing_type": "SF6_gas_insulated_bushing",
+    "grid_side_voltage": "500kV",
+    "tap_changing_method": "on_load_tap_changing",
+    "primary_standby_role": "primary",
+    "system_position": "pole_1",
+    "phase": "phase_A",
+    "unit_number": "unit_1"
+  },
+  "dimension_columns": [
+    "connection_type",
+    "cooling_method",
+    "bushing_type",
+    "grid_side_voltage",
+    "tap_changing_method",
+    "primary_standby_role",
+    "system_position",
+    "phase",
+    "unit_number"
+  ],
+  "time_range": {
+    "start": "2024-01-01 00:00:00",
+    "end": "2025-12-31 23:00:00",
+    "freq": "1h",
+    "n_rows": 17544
+  },
+  "eligible_rules_with_injector": [
+    "K29",
+    "K19",
+    "K2",
+    "K6",
+    "K26",
+    "K9",
+    "K7",
+    "K1",
+    "K16",
+    "K4",
+    "K15",
+    "K13",
+    "K28",
+    "K27",
+    "K20",
+    "K3",
+    "K12",
+    "K5",
+    "K8",
+    "K10"
+  ],
+  "chosen_rules_for_injection": [
+    "K4",
+    "K6",
+    "K12",
+    "K28",
+    "K29",
+    "K1",
+    "K10",
+    "K19",
+    "K7",
+    "K6",
+    "K26",
+    "K27",
+    "K29",
+    "K8",
+    "K4",
+    "K12",
+    "K27",
+    "K2",
+    "K12",
+    "K16",
+    "K29",
+    "K19",
+    "K2",
+    "K6",
+    "K20",
+    "K7",
+    "K8",
+    "K7",
+    "K4",
+    "K2",
+    "K16",
+    "K28",
+    "K7",
+    "K4"
+  ],
+  "inspection_days": [
+    "2024-01-01 12:00:00",
+    "2024-03-01 12:00:00",
+    "2024-05-01 12:00:00",
+    "2024-07-01 12:00:00",
+    "2024-09-01 12:00:00",
+    "2024-11-01 12:00:00",
+    "2025-01-01 12:00:00",
+    "2025-03-01 12:00:00",
+    "2025-05-01 12:00:00",
+    "2025-07-01 12:00:00",
+    "2025-09-01 12:00:00",
+    "2025-11-01 12:00:00"
+  ],
+  "episode_days": [
+    "2025-04-23 12:00:00",
+    "2025-11-13 12:00:00",
+    "2025-11-17 12:00:00",
+    "2025-08-07 12:00:00",
+    "2025-10-10 12:00:00",
+    "2024-01-08 12:00:00",
+    "2024-09-17 12:00:00",
+    "2025-11-14 00:00:00",
+    "2024-05-06 00:00:00",
+    "2025-02-01 15:00:00",
+    "2024-07-31 20:00:00",
+    "2024-01-01 18:00:00",
+    "2025-05-11 10:00:00",
+    "2025-05-04 11:00:00",
+    "2025-06-22 15:00:00",
+    "2024-12-27 22:00:00",
+    "2024-08-13 15:00:00",
+    "2025-03-09 04:00:00",
+    "2025-08-14 23:00:00",
+    "2024-03-22 22:00:00",
+    "2024-01-13 14:00:00",
+    "2025-12-26 01:00:00",
+    "2024-11-20 09:00:00"
+  ],
+  "near_miss_attempted_rules": [
+    "K29",
+    "K20",
+    "K26",
+    "K26",
+    "K6"
+  ],
+  "scenarios": [
+    {
+      "rule_id": "K4",
+      "input_database_fields": [
+        "oil_dga_h2",
+        "oil_dga_ch4",
+        "oil_dga_c2h6",
+        "oil_dga_c2h4",
+        "oil_dga_c2h2",
+        "oil_dga_co",
+        "oil_dga_co2",
+        "oil_dga_total_hydrocarbon"
+      ],
+      "window_start": "2025-03-24 15:00:00",
+      "window_end": "2025-04-23 14:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "oil_dga_total_hydrocarbon"
+      ],
+      "details": {
+        "total_hydrocarbon_diff": 469.1593667469469,
+        "abs_rate_30d": 15.600000000000001,
+        "rel_rate_30d": 78.0
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K6",
+      "input_database_fields": [
+        "core_ground_current"
+      ],
+      "window_start": "2025-04-23 21:00:00",
+      "window_end": "2025-04-23 23:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "core_ground_current"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K12",
+      "input_database_fields": [
+        "sf6_gas_pressure_density"
+      ],
+      "window_start": "2025-10-14 20:00:00",
+      "window_end": "2025-11-13 19:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "sf6_gas_pressure_density",
+        "P_SF6"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K28",
+      "input_database_fields": [
+        "oil_dga_co2",
+        "oil_dga_co"
+      ],
+      "window_start": "2025-11-13 20:00:00",
+      "window_end": "2025-11-13 20:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "oil_dga_co",
+        "oil_dga_co2",
+        "dga_ratio_co2_co"
+      ],
+      "details": {
+        "ratio": 8.059491101090028
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K29",
+      "input_database_fields": [
+        "oil_dga_co2",
+        "oil_dga_co"
+      ],
+      "window_start": "2025-11-14 00:00:00",
+      "window_end": "2025-11-14 00:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "oil_dga_co",
+        "oil_dga_co2",
+        "dga_ratio_co2_co"
+      ],
+      "details": {
+        "ratio": 1.5
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K1",
+      "input_database_fields": [
+        "top_oil_temp"
+      ],
+      "window_start": "2025-11-13 21:00:00",
+      "window_end": "2025-11-13 23:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "top_oil_temp"
+      ],
+      "details": {
+        "T_alarm": 85.0,
+        "T_trip": 95.0
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K10",
+      "input_database_fields": [
+        "pd_level"
+      ],
+      "window_start": "2025-11-16 15:00:00",
+      "window_end": "2025-11-17 14:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "pd_level"
+      ],
+      "details": {
+        "branch24h_avg": true
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K19",
+      "input_database_fields": [
+        "oil_dga_c2h2",
+        "oil_dga_c2h4"
+      ],
+      "window_start": "2025-11-17 17:00:00",
+      "window_end": "2025-11-17 17:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "oil_dga_c2h2",
+        "oil_dga_c2h4",
+        "dga_ratio_c2h2_c2h4"
+      ],
+      "details": {
+        "ratio": 0.18899252040244485
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K7",
+      "input_database_fields": [
+        "cooling_system_status"
+      ],
+      "window_start": "2025-11-17 22:00:00",
+      "window_end": "2025-11-17 22:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "cooling_system_status",
+        "cooling_status"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K6",
+      "input_database_fields": [
+        "core_ground_current"
+      ],
+      "window_start": "2025-08-07 11:00:00",
+      "window_end": "2025-08-07 13:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "core_ground_current"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K26",
+      "input_database_fields": [
+        "transformer_body_pressure",
+        "conservator_pressure"
+      ],
+      "window_start": "2025-08-07 03:00:00",
+      "window_end": "2025-08-07 05:00:00",
+      "type": "fault",
+      "skipped": true,
+      "reason": "injection did not trigger; det={}",
+      "alpha": null,
+      "changed_cols": null,
+      "details": {},
+      "note": ""
+    },
+    {
+      "rule_id": "K27",
+      "input_database_fields": [
+        "transformer_body_pressure",
+        "conservator_pressure"
+      ],
+      "window_start": "2025-08-07 15:00:00",
+      "window_end": "2025-08-07 17:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "conservator_pressure",
+        "transformer_body_pressure",
+        "pressure_diff_body_conservator"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K29",
+      "input_database_fields": [
+        "oil_dga_co2",
+        "oil_dga_co"
+      ],
+      "window_start": "2025-08-07 01:00:00",
+      "window_end": "2025-08-07 01:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "oil_dga_co",
+        "oil_dga_co2",
+        "dga_ratio_co2_co"
+      ],
+      "details": {
+        "ratio": 1.5
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K8",
+      "input_database_fields": [
+        "oltc_overall_status"
+      ],
+      "window_start": "2025-10-10 12:00:00",
+      "window_end": "2025-10-10 12:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "oltc_overall_status",
+        "oltc_status"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K4",
+      "input_database_fields": [
+        "oil_dga_h2",
+        "oil_dga_ch4",
+        "oil_dga_c2h6",
+        "oil_dga_c2h4",
+        "oil_dga_c2h2",
+        "oil_dga_co",
+        "oil_dga_co2",
+        "oil_dga_total_hydrocarbon"
+      ],
+      "window_start": "2025-09-10 09:00:00",
+      "window_end": "2025-10-10 08:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "oil_dga_c2h6"
+      ],
+      "details": {
+        "total_hydrocarbon_diff": 63.335805217060056,
+        "abs_rate_30d": -0.36395432557165536,
+        "rel_rate_30d": -1.5192556711542862
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K12",
+      "input_database_fields": [
+        "sf6_gas_pressure_density"
+      ],
+      "window_start": "2024-04-06 01:00:00",
+      "window_end": "2024-05-06 00:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "sf6_gas_pressure_density",
+        "P_SF6"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K27",
+      "input_database_fields": [
+        "transformer_body_pressure",
+        "conservator_pressure"
+      ],
+      "window_start": "2024-01-08 20:00:00",
+      "window_end": "2024-01-08 22:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "conservator_pressure",
+        "transformer_body_pressure",
+        "pressure_diff_body_conservator"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K2",
+      "input_database_fields": [
+        "winding_hotspot_temp"
+      ],
+      "window_start": "2024-01-08 07:00:00",
+      "window_end": "2024-01-08 09:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "winding_hotspot_temp"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K12",
+      "input_database_fields": [
+        "sf6_gas_pressure_density"
+      ],
+      "window_start": "2025-01-02 16:00:00",
+      "window_end": "2025-02-01 15:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "sf6_gas_pressure_density",
+        "P_SF6"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K16",
+      "input_database_fields": [
+        "oltc_overall_status",
+        "c2h2_oltc"
+      ],
+      "window_start": "2024-08-18 21:00:00",
+      "window_end": "2024-09-17 20:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "c2h2_oltc",
+        "oltc_operation_count"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K29",
+      "input_database_fields": [
+        "oil_dga_co2",
+        "oil_dga_co"
+      ],
+      "window_start": "2024-09-17 21:00:00",
+      "window_end": "2024-09-17 21:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "oil_dga_co",
+        "oil_dga_co2",
+        "dga_ratio_co2_co"
+      ],
+      "details": {
+        "ratio": 1.5
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K19",
+      "input_database_fields": [
+        "oil_dga_c2h2",
+        "oil_dga_c2h4"
+      ],
+      "window_start": "2024-07-31 20:00:00",
+      "window_end": "2024-07-31 20:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "oil_dga_c2h2",
+        "oil_dga_c2h4",
+        "dga_ratio_c2h2_c2h4"
+      ],
+      "details": {
+        "ratio": 0.17087188450564478
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K2",
+      "input_database_fields": [
+        "winding_hotspot_temp"
+      ],
+      "window_start": "2024-01-01 16:00:00",
+      "window_end": "2024-01-01 18:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "winding_hotspot_temp"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K6",
+      "input_database_fields": [
+        "core_ground_current"
+      ],
+      "window_start": "2025-05-11 08:00:00",
+      "window_end": "2025-05-11 10:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "core_ground_current"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K20",
+      "input_database_fields": [
+        "oil_dga_c2h2",
+        "oil_dga_c2h4"
+      ],
+      "window_start": "2025-05-04 11:00:00",
+      "window_end": "2025-05-04 11:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "oil_dga_c2h2",
+        "oil_dga_c2h4",
+        "oil_dga_total_hydrocarbon",
+        "dga_ratio_c2h2_c2h4"
+      ],
+      "details": {
+        "ratio": 0.005,
+        "total_hydrocarbon": 174.70220012021358
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K7",
+      "input_database_fields": [
+        "cooling_system_status"
+      ],
+      "window_start": "2025-06-22 15:00:00",
+      "window_end": "2025-06-22 15:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "cooling_system_status",
+        "cooling_status"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K8",
+      "input_database_fields": [
+        "oltc_overall_status"
+      ],
+      "window_start": "2024-12-27 22:00:00",
+      "window_end": "2024-12-27 22:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "oltc_overall_status",
+        "oltc_status"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K7",
+      "input_database_fields": [
+        "cooling_system_status"
+      ],
+      "window_start": "2024-08-13 15:00:00",
+      "window_end": "2024-08-13 15:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "cooling_system_status",
+        "cooling_status"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K4",
+      "input_database_fields": [
+        "oil_dga_h2",
+        "oil_dga_ch4",
+        "oil_dga_c2h6",
+        "oil_dga_c2h4",
+        "oil_dga_c2h2",
+        "oil_dga_co",
+        "oil_dga_co2",
+        "oil_dga_total_hydrocarbon"
+      ],
+      "window_start": "2025-02-07 05:00:00",
+      "window_end": "2025-03-09 04:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "oil_dga_c2h2",
+        "oil_dga_c2h4",
+        "oil_dga_c2h6",
+        "oil_dga_ch4",
+        "oil_dga_total_hydrocarbon"
+      ],
+      "details": {
+        "total_hydrocarbon_diff": 25.0,
+        "abs_rate_30d": 4.263270087006271,
+        "rel_rate_30d": 24.67236775585947
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K2",
+      "input_database_fields": [
+        "winding_hotspot_temp"
+      ],
+      "window_start": "2025-08-14 21:00:00",
+      "window_end": "2025-08-14 23:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "winding_hotspot_temp"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K16",
+      "input_database_fields": [
+        "oltc_overall_status",
+        "c2h2_oltc"
+      ],
+      "window_start": "2024-02-21 23:00:00",
+      "window_end": "2024-03-22 22:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "c2h2_oltc",
+        "oltc_operation_count"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K28",
+      "input_database_fields": [
+        "oil_dga_co2",
+        "oil_dga_co"
+      ],
+      "window_start": "2024-01-13 14:00:00",
+      "window_end": "2024-01-13 14:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "oil_dga_co",
+        "oil_dga_co2",
+        "dga_ratio_co2_co"
+      ],
+      "details": {
+        "ratio": 8.588507715876673
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K7",
+      "input_database_fields": [
+        "cooling_system_status"
+      ],
+      "window_start": "2025-12-26 01:00:00",
+      "window_end": "2025-12-26 01:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "cooling_system_status",
+        "cooling_status"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K4",
+      "input_database_fields": [
+        "oil_dga_h2",
+        "oil_dga_ch4",
+        "oil_dga_c2h6",
+        "oil_dga_c2h4",
+        "oil_dga_c2h2",
+        "oil_dga_co",
+        "oil_dga_co2",
+        "oil_dga_total_hydrocarbon"
+      ],
+      "window_start": "2024-10-21 10:00:00",
+      "window_end": "2024-11-20 09:00:00",
+      "type": "fault",
+      "skipped": false,
+      "reason": "",
+      "alpha": null,
+      "changed_cols": [
+        "oil_dga_h2"
+      ],
+      "details": {
+        "total_hydrocarbon_diff": 0.0,
+        "abs_rate_30d": -0.2431083259172971,
+        "rel_rate_30d": -0.8126361181994518
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    }
+  ],
+  "near_miss": [
+    {
+      "rule_id": "K21",
+      "input_database_fields": [
+        "winding_hotspot_temp",
+        "cooling_water_temp"
+      ],
+      "window_start": "2024-07-01 03:00:00",
+      "window_end": "2024-07-01 05:00:00",
+      "type": "near_miss",
+      "skipped": false,
+      "reason": "",
+      "alpha": 0.9150390625,
+      "changed_cols": [
+        "cooling_water_temp",
+        "winding_hotspot_temp"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K29",
+      "input_database_fields": [
+        "oil_dga_co2",
+        "oil_dga_co"
+      ],
+      "window_start": "2024-07-01 17:00:00",
+      "window_end": "2024-07-01 17:00:00",
+      "type": "near_miss",
+      "skipped": false,
+      "reason": "",
+      "alpha": 0.0234375,
+      "changed_cols": [
+        "oil_dga_co",
+        "oil_dga_co2"
+      ],
+      "details": {
+        "ratio": 3.0294086352984033
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K20",
+      "input_database_fields": [
+        "oil_dga_c2h2",
+        "oil_dga_c2h4"
+      ],
+      "window_start": "2025-09-01 18:00:00",
+      "window_end": "2025-09-01 18:00:00",
+      "type": "near_miss",
+      "skipped": false,
+      "reason": "",
+      "alpha": 0.7763671875,
+      "changed_cols": [
+        "oil_dga_c2h2",
+        "oil_dga_c2h4",
+        "oil_dga_total_hydrocarbon"
+      ],
+      "details": {
+        "ratio": 0.005072764403292821,
+        "total_hydrocarbon": 149.94659836863386
+      },
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K26",
+      "input_database_fields": [
+        "transformer_body_pressure",
+        "conservator_pressure"
+      ],
+      "window_start": "2024-12-31 22:00:00",
+      "window_end": "2025-01-01 00:00:00",
+      "type": "near_miss",
+      "skipped": true,
+      "reason": "fault injection did not trigger rule at ts_end",
+      "alpha": null,
+      "changed_cols": null,
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K21",
+      "input_database_fields": [
+        "winding_hotspot_temp",
+        "cooling_water_temp"
+      ],
+      "window_start": "2024-01-01 13:00:00",
+      "window_end": "2024-01-01 15:00:00",
+      "type": "near_miss",
+      "skipped": false,
+      "reason": "",
+      "alpha": 0.8916015625,
+      "changed_cols": [
+        "cooling_water_temp",
+        "winding_hotspot_temp"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K26",
+      "input_database_fields": [
+        "transformer_body_pressure",
+        "conservator_pressure"
+      ],
+      "window_start": "2025-07-01 18:00:00",
+      "window_end": "2025-07-01 20:00:00",
+      "type": "near_miss",
+      "skipped": true,
+      "reason": "fault injection did not trigger rule at ts_end",
+      "alpha": null,
+      "changed_cols": null,
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    },
+    {
+      "rule_id": "K6",
+      "input_database_fields": [
+        "core_ground_current"
+      ],
+      "window_start": "2025-05-01 03:00:00",
+      "window_end": "2025-05-01 05:00:00",
+      "type": "near_miss",
+      "skipped": false,
+      "reason": "",
+      "alpha": 0.7431640625,
+      "changed_cols": [
+        "core_ground_current"
+      ],
+      "details": {},
+      "note": "Fault injection succeeded (alert cluster)"
+    }
+  ],
+  "checks": {
+    "background_sample_triggers": [],
+    "background_clean": true,
+    "fault_verified": [
+      {
+        "rule_id": "K4",
+        "window_end": "2025-04-23 14:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K6",
+        "window_end": "2025-04-23 23:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K12",
+        "window_end": "2025-11-13 19:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K28",
+        "window_end": "2025-11-13 20:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K29",
+        "window_end": "2025-11-14 00:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K1",
+        "window_end": "2025-11-13 23:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K10",
+        "window_end": "2025-11-17 14:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K22",
+        "window_end": "2025-11-17 18:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K19",
+        "window_end": "2025-11-17 17:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K7",
+        "window_end": "2025-11-17 22:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K6",
+        "window_end": "2025-08-07 13:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K27",
+        "window_end": "2025-08-07 17:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K29",
+        "window_end": "2025-08-07 01:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K8",
+        "window_end": "2025-10-10 12:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K4",
+        "window_end": "2025-10-10 08:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K12",
+        "window_end": "2024-05-06 00:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K27",
+        "window_end": "2024-01-08 22:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K22",
+        "window_end": "2024-01-08 14:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K2",
+        "window_end": "2024-01-08 09:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K12",
+        "window_end": "2025-02-01 15:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K16",
+        "window_end": "2024-09-17 20:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K29",
+        "window_end": "2024-09-17 21:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K19",
+        "window_end": "2024-07-31 20:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K22",
+        "window_end": "2024-03-28 23:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K2",
+        "window_end": "2024-01-01 18:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K6",
+        "window_end": "2025-05-11 10:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K20",
+        "window_end": "2025-05-04 11:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K7",
+        "window_end": "2025-06-22 15:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K8",
+        "window_end": "2024-12-27 22:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K7",
+        "window_end": "2024-08-13 15:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K4",
+        "window_end": "2025-03-09 04:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K2",
+        "window_end": "2025-08-14 23:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K16",
+        "window_end": "2024-03-22 22:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K28",
+        "window_end": "2024-01-13 14:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K7",
+        "window_end": "2025-12-26 01:00:00",
+        "triggered": true
+      },
+      {
+        "rule_id": "K4",
+        "window_end": "2024-11-20 09:00:00",
+        "triggered": true
+      }
+    ],
+    "fault_all_trigger": true,
+    "near_miss_verified": [
+      {
+        "rule_id": "K21",
+        "window_end": "2024-07-01 05:00:00",
+        "triggered": false
+      },
+      {
+        "rule_id": "K29",
+        "window_end": "2024-07-01 17:00:00",
+        "triggered": false
+      },
+      {
+        "rule_id": "K20",
+        "window_end": "2025-09-01 18:00:00",
+        "triggered": false
+      },
+      {
+        "rule_id": "K21",
+        "window_end": "2024-01-01 15:00:00",
+        "triggered": false
+      },
+      {
+        "rule_id": "K6",
+        "window_end": "2025-05-01 05:00:00",
+        "triggered": false
+      }
+    ],
+    "near_miss_none_trigger": true,
+    "density": {
+      "fault_ok": 36,
+      "near_miss_ok": 5,
+      "fault_target_range": [
+        30,
+        40
+      ],
+      "near_miss_target_range": [
+        6,
+        12
+      ],
+      "soft_target_used": 36,
+      "eligible_injectable_rules": 22,
+      "fault_meets_floor": true,
+      "fault_meets_soft": true,
+      "near_miss_meets_floor": false,
+      "note": ""
+    }
+  }
+}

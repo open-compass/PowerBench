@@ -1,0 +1,1865 @@
+{
+  "device_type": "±800kV high-end converter transformer",
+  "anomaly_judgment_rules": [
+    {
+      "rule_id": "K1",
+      "object_name": "top_oil_temp",
+      "object_type": "common_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 3,
+        "description": "metric exceeds threshold for 3 consecutive hourly samples"
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "top_oil_temp"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "top_oil_temp 3hoursexceeds the alarm threshold， or exceeds the trip threshold，judge as abnormal.",
+      "rule_expression": "consec_3h(top_oil_temp > T_alarm) = true OR top_oil_temp > T_trip",
+      "threshold_params": [
+        {
+          "param_name": "T_alarm",
+          "meaning": "top_oil_tempalarm threshold(℃)",
+          "param_value": "85"
+        },
+        {
+          "param_name": "T_trip",
+          "meaning": "top_oil_temptrip threshold(℃)",
+          "param_value": "95"
+        }
+      ],
+      "conclusion": "top_oil_tempyesnothere isabnormal",
+      "text_description": "top_oil_temp 3hours 85℃， or a single point exceeds95℃，judge as abnormal.",
+      "complexity_score": 14,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 4,
+        "atom": 2,
+        "time": 7,
+        "data": 1,
+        "features": {
+          "or_count": 1,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 1,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 3
+        }
+      }
+    },
+    {
+      "rule_id": "K2",
+      "object_name": "winding_hotspot_temp",
+      "object_type": "common_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 3,
+        "description": "metric exceeds threshold for 3 consecutive hourly samples"
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "winding_hotspot_temp"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "winding_hotspot_temp 3hoursexceeds the alarm threshold， or exceeds the trip threshold，judge as abnormal.",
+      "rule_expression": "consec_3h(winding_hotspot_temp > T_alarm) = true OR winding_hotspot_temp > T_trip",
+      "threshold_params": [
+        {
+          "param_name": "T_alarm",
+          "meaning": "winding_hotspot_tempalarm threshold(℃)",
+          "param_value": "120"
+        },
+        {
+          "param_name": "T_trip",
+          "meaning": "winding_hotspot_temptrip threshold(℃)",
+          "param_value": "140"
+        }
+      ],
+      "conclusion": "winding_hotspot_tempyesnothere isabnormal",
+      "text_description": "winding_hotspot_temp 3hours 120℃， or a single point exceeds140℃，judge as abnormal.",
+      "complexity_score": 14,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 4,
+        "atom": 2,
+        "time": 7,
+        "data": 1,
+        "features": {
+          "or_count": 1,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 1,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 3
+        }
+      }
+    },
+    {
+      "rule_id": "K3",
+      "object_name": "oil_level",
+      "object_type": "common_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 3,
+        "description": "metric exceeds threshold for 3 consecutive hourly samples"
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "oil_level"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "oil_level 3hoursbelow the minimumoil_level or above the maximumoil_level,judge as abnormal.",
+      "rule_expression": "consec_3h(oil_level < L_min) = true OR consec_3h(oil_level > L_max) = true",
+      "threshold_params": [
+        {
+          "param_name": "L_min",
+          "meaning": "oil_level (mm or %)",
+          "param_value": "-100"
+        },
+        {
+          "param_name": "L_max",
+          "meaning": "oil_level (mm or %)",
+          "param_value": "100"
+        }
+      ],
+      "conclusion": "oil_levelyesnothere isabnormal",
+      "text_description": "oil_level 3hours -100mm or 100mm，judge as abnormal.",
+      "complexity_score": 14,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 4,
+        "atom": 2,
+        "time": 7,
+        "data": 1,
+        "features": {
+          "or_count": 1,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 1,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 3
+        }
+      }
+    },
+    {
+      "rule_id": "K4",
+      "object_name": "oil_dga_group",
+      "object_type": "common_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": true,
+        "consecutive_points": 1,
+        "description": "See rule_expression and threshold_params."
+      },
+      "temporal_requirements": {
+        "needs_long_observation": true,
+        "window_length": "30d",
+        "statistic": [
+          "n/a",
+          "slope"
+        ],
+        "missing_data_handling": ">30%"
+      },
+      "input_metrics": [
+        "oil_dga_h2",
+        "oil_dga_ch4",
+        "oil_dga_c2h6",
+        "oil_dga_c2h4",
+        "oil_dga_c2h2",
+        "oil_dga_co",
+        "oil_dga_co2",
+        "oil_dga_total_hydrocarbon"
+      ],
+      "derived_metric_definitions": [
+        {
+          "derived_metric_name": "total hydrocarbons gas generation rate",
+          "formula": "(C2 - C1) / (t2 - t1)",
+          "description": "counts total hydrocarbons,unitμL/L/day"
+        },
+        {
+          "derived_metric_name": "total hydrocarbons gas generation rate",
+          "formula": "((C2 - C1) / C1) * 100 / (t2 - t1)",
+          "description": "counts total hydrocarbons,unit%/day"
+        },
+        {
+          "derived_metric_name": "total hydrocarbonscalculated",
+          "formula": "CH4 + C2H6 + C2H4 + C2H2",
+          "description": "calculated total hydrocarbons, and directly measured total hydrocarbons"
+        }
+      ],
+      "judgment_description": "any key gas（H2, CH4, C2H6, C2H4, C2H2, CO, CO2）content exceedsDL/T 722codeattention value， or total hydrocarbonsabsolute/relative gas generation rate codelimit， or directly measured total hydrocarbons and calculatedtotal hydrocarbons deviation too large，judge as abnormal.",
+      "rule_expression": "(oil_dga_h2 > T_H2) OR (oil_dga_ch4 > T_CH4) OR (oil_dga_c2h6 > T_C2H6) OR (oil_dga_c2h4 > T_C2H4) OR (oil_dga_c2h2 > T_C2H2) OR (oil_dga_co > T_CO) OR (oil_dga_co2 > T_CO2) OR (total hydrocarbons gas generation rate > T_abs) OR (total hydrocarbons gas generation rate > T_rel) OR (ABS(oil_dga_total_hydrocarbon - total hydrocarbonscalculated ) > T_total_hydrocarbon_diff)",
+      "threshold_params": [
+        {
+          "param_name": "T_H2",
+          "meaning": "hydrogenattention value(μL/L)",
+          "param_value": "150"
+        },
+        {
+          "param_name": "T_CH4",
+          "meaning": "methaneattention value(μL/L)",
+          "param_value": "60"
+        },
+        {
+          "param_name": "T_C2H6",
+          "meaning": "ethaneattention value(μL/L)",
+          "param_value": "65"
+        },
+        {
+          "param_name": "T_C2H4",
+          "meaning": "ethyleneattention value(μL/L)",
+          "param_value": "50"
+        },
+        {
+          "param_name": "T_C2H2",
+          "meaning": "acetyleneattention value(μL/L)",
+          "param_value": "1"
+        },
+        {
+          "param_name": "T_CO",
+          "meaning": "carbon monoxideattention value(μL/L)",
+          "param_value": "350"
+        },
+        {
+          "param_name": "T_CO2",
+          "meaning": "carbon dioxideattention value(μL/L)",
+          "param_value": "2500"
+        },
+        {
+          "param_name": "T_abs",
+          "meaning": "total hydrocarbons gas generation rateattention value(μL/L/day)",
+          "param_value": "12"
+        },
+        {
+          "param_name": "T_rel",
+          "meaning": "total hydrocarbons gas generation rateattention value(%/day)",
+          "param_value": "10"
+        },
+        {
+          "param_name": "T_total_hydrocarbon_diff",
+          "meaning": "total hydrocarbons and calculated (μL/L)",
+          "param_value": "10"
+        }
+      ],
+      "conclusion": "oil_dga_groupyesnothere isabnormal",
+      "text_description": "30days,any key gas（H2, CH4, C2H6, C2H4, C2H2, CO, CO2）content exceeds DL/T 722codeattention value（ is 150μL/L、60μL/L、65μL/L、50μL/L、1μL/L、350μL/L、2500μL/L）， or total hydrocarbons gas generation rate 12μL/L/day、 gas generation rate 10%/day， or directly measured total hydrocarbons and calculatedtotal hydrocarbons 10μL/L，judge as abnormal.",
+      "complexity_score": 78,
+      "complexity_level": 4,
+      "complexity_detail": {
+        "logic": 30,
+        "atom": 13,
+        "time": 21,
+        "data": 14,
+        "features": {
+          "or_count": 9,
+          "and_count": 0,
+          "max_nesting": 2,
+          "input_count": 8,
+          "derived_count": 3,
+          "condition_count": 0,
+          "window_hours_max": 720
+        }
+      }
+    },
+    {
+      "rule_id": "K5",
+      "object_name": "rel_change_tan",
+      "object_type": "common_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": true,
+        "consecutive_points": 1,
+        "description": "See rule_expression and threshold_params."
+      },
+      "temporal_requirements": {
+        "needs_long_observation": true,
+        "window_length": "365d",
+        "statistic": [
+          "n/a"
+        ],
+        "missing_data_handling": ">30%"
+      },
+      "input_metrics": [
+        "rel_change_tan"
+      ],
+      "derived_metric_definitions": [
+        {
+          "derived_metric_name": "dielectric loss",
+          "formula": "(tanδ_current - tanδ_initial) / tanδ_initial",
+          "description": "before dielectric loss"
+        },
+        {
+          "derived_metric_name": "capacitance",
+          "formula": "(C_current - C_initial) / C_initial",
+          "description": "before capacitance"
+        }
+      ],
+      "judgment_description": "bushingdielectric loss, or dielectric loss/capacitancerelative change from initial value,judge as abnormal.",
+      "rule_expression": "rel_change_tan > T_tanδ",
+      "threshold_params": [
+        {
+          "param_name": "T_tanδ",
+          "meaning": "bushingdielectric loss",
+          "param_value": "0.007"
+        }
+      ],
+      "conclusion": "rel_change_tanyesnothere isabnormal",
+      "text_description": "bushingdielectric loss 0.007， or 365days dielectric lossrelative change from initial value 30%， or 365days capacitancerelative change from initial value 5%，judge as abnormal.",
+      "complexity_score": 39,
+      "complexity_level": 2,
+      "complexity_detail": {
+        "logic": 8,
+        "atom": 5,
+        "time": 21,
+        "data": 5,
+        "features": {
+          "or_count": 2,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 1,
+          "derived_count": 2,
+          "condition_count": 0,
+          "window_hours_max": 8760
+        }
+      }
+    },
+    {
+      "rule_id": "K6",
+      "object_name": "core_ground_current",
+      "object_type": "common_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 3,
+        "description": "metric exceeds threshold for 3 consecutive hourly samples"
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "core_ground_current"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "core_ground_current 3hoursexceeds the alarm threshold，judge as abnormal.",
+      "rule_expression": "consec_3h(core_ground_current > T_alarm) = true",
+      "threshold_params": [
+        {
+          "param_name": "T_alarm",
+          "meaning": "core_ground_currentalarm threshold(mA)",
+          "param_value": "100"
+        }
+      ],
+      "conclusion": "core_ground_currentyesnothere isabnormal",
+      "text_description": "core_ground_current 3hours 100mA，judge as abnormal.",
+      "complexity_score": 9,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 0,
+        "atom": 1,
+        "time": 7,
+        "data": 1,
+        "features": {
+          "or_count": 0,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 1,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 3
+        }
+      }
+    },
+    {
+      "rule_id": "K7",
+      "object_name": "cooling_system_status",
+      "object_type": "common_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 1,
+        "description": "abnormalcontinuously when"
+      },
+      "temporal_requirements": {
+        "needs_long_observation": true,
+        "window_length": "1h",
+        "statistic": [
+          "continuously when"
+        ],
+        "missing_data_handling": ">30%"
+      },
+      "input_metrics": [
+        "cooling_system_status"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "cooling systemrunning continuously1hours ‘fault’ or ‘alarm’,judge as abnormal.",
+      "rule_expression": "duration_1h(cooling_status in {'fault','alarm'}) >= 3600",
+      "threshold_params": [
+        {
+          "param_name": "T_duration",
+          "meaning": "abnormal continuously when (seconds)",
+          "param_value": "3600"
+        }
+      ],
+      "conclusion": "cooling systemrunning yesnothere isabnormal",
+      "text_description": "cooling systemrunning at 1hours continuously ‘fault’ or ‘alarm’ 3600seconds，judge as abnormal.",
+      "complexity_score": 10,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 0,
+        "atom": 4,
+        "time": 5,
+        "data": 1,
+        "features": {
+          "or_count": 0,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 1,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 1
+        }
+      }
+    },
+    {
+      "rule_id": "K8",
+      "object_name": "oltc_status_group",
+      "object_type": "common_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 1,
+        "description": "abnormalcontinuously when"
+      },
+      "temporal_requirements": {
+        "needs_long_observation": true,
+        "window_length": "1h",
+        "statistic": [
+          "continuously when"
+        ],
+        "missing_data_handling": ">30%"
+      },
+      "input_metrics": [
+        "oltc_overall_status"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "on-load tap changerrunning continuously1hours ‘fault’、‘alarm’ or ‘tap_overlimit’,judge as abnormal.",
+      "rule_expression": "duration_1h(oltc_status in {'fault','alarm','tap_overlimit'}) >= 3600",
+      "threshold_params": [
+        {
+          "param_name": "T_duration",
+          "meaning": "abnormal continuously when (seconds)",
+          "param_value": "3600"
+        }
+      ],
+      "conclusion": "oltc_status_groupyesnothere isabnormal",
+      "text_description": "on-load tap changerrunning 1hours（3600seconds）continuously ‘fault’、‘alarm’ or ‘tap_overlimit’,judge as abnormal.",
+      "complexity_score": 10,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 0,
+        "atom": 4,
+        "time": 5,
+        "data": 1,
+        "features": {
+          "or_count": 0,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 1,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 1
+        }
+      }
+    },
+    {
+      "rule_id": "K9",
+      "object_name": "body_attachment_pressure_density_group",
+      "object_type": "common_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 3,
+        "description": "metric exceeds threshold for 3 consecutive hourly samples"
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "transformer_body_pressure",
+        "conservator_pressure",
+        "bushing_pressure"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "transformer body、conservator or bushingpressure/density 3hoursbelow the minimum or above the maximum,judge as abnormal.",
+      "rule_expression": "(consec_3h(body_attachment_pressure_density_group-transformer bodypressure < P_min) = true OR consec_3h(body_attachment_pressure_density_group-transformer bodypressure > P_max) = true) OR (consec_3h(body_attachment_pressure_density_group-conservatorpressure < P_min) = true OR consec_3h(body_attachment_pressure_density_group-conservatorpressure > P_max) = true) OR (consec_3h(body_attachment_pressure_density_group-bushingpressure < P_min) = true OR consec_3h(body_attachment_pressure_density_group-bushingpressure > P_max) = true)",
+      "threshold_params": [
+        {
+          "param_name": "P_min",
+          "meaning": "pressure/density (kPa)",
+          "param_value": "20"
+        },
+        {
+          "param_name": "P_max",
+          "meaning": "pressure/density (kPa)",
+          "param_value": "80"
+        }
+      ],
+      "conclusion": "body_attachment_pressure_density_groupyesnothere isabnormal",
+      "text_description": "transformer body、conservator or bushingpressure/density 3hours 20kPa or 80kPa，judge as abnormal.",
+      "complexity_score": 39,
+      "complexity_level": 2,
+      "complexity_detail": {
+        "logic": 23,
+        "atom": 6,
+        "time": 7,
+        "data": 3,
+        "features": {
+          "or_count": 5,
+          "and_count": 0,
+          "max_nesting": 2,
+          "input_count": 3,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 3
+        }
+      }
+    },
+    {
+      "rule_id": "K10",
+      "object_name": "pd_level",
+      "object_type": "common_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 3,
+        "description": "metric exceeds threshold for 3 consecutive hourly samples"
+      },
+      "temporal_requirements": {
+        "needs_long_observation": true,
+        "window_length": "24h",
+        "statistic": [
+          "mean",
+          "n/a",
+          "n/a"
+        ],
+        "missing_data_handling": ">30%"
+      },
+      "input_metrics": [
+        "pd_level"
+      ],
+      "derived_metric_definitions": [
+        {
+          "derived_metric_name": "PD",
+          "formula": "(PD_current - PD_24h_avg) / PD_24h_avg",
+          "description": "before pd_level 24hoursmean"
+        }
+      ],
+      "judgment_description": "pd_level 3hours attention value， or 24hoursmean background value, or short-term rate of changesevere，judge as abnormal.",
+      "rule_expression": "consec_3h(pd_level > T_attention) = true OR avg_24h(pd_level) > T_background * K",
+      "threshold_params": [
+        {
+          "param_name": "T_attention",
+          "meaning": "pd_levelattention value(pC)",
+          "param_value": "500"
+        },
+        {
+          "param_name": "T_background",
+          "meaning": "background value(pC)",
+          "param_value": "100"
+        },
+        {
+          "param_name": "K",
+          "meaning": "background value",
+          "param_value": "3"
+        }
+      ],
+      "conclusion": "pd_levelyesnothere isabnormal",
+      "text_description": "pd_level 3hours 500pC， or 24hoursmean background value100pC 3, or short-term rate of change 50%，judge as abnormal.",
+      "complexity_score": 30,
+      "complexity_level": 2,
+      "complexity_detail": {
+        "logic": 8,
+        "atom": 6,
+        "time": 13,
+        "data": 3,
+        "features": {
+          "or_count": 2,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 1,
+          "derived_count": 1,
+          "condition_count": 0,
+          "window_hours_max": 24
+        }
+      }
+    },
+    {
+      "rule_id": "K11",
+      "object_name": "cooling_water_params_group",
+      "object_type": "special_maintenance_metrics",
+      "applicability_conditions": [
+        {
+          "field_name": "cooling_method",
+          "field_value": [
+            "n/a"
+          ]
+        }
+      ],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 3,
+        "description": "metric exceeds threshold for 3 consecutive hourly samples"
+      },
+      "temporal_requirements": {
+        "needs_long_observation": true,
+        "window_length": "24h",
+        "statistic": [
+          "mean",
+          "n/a"
+        ],
+        "missing_data_handling": ">30%"
+      },
+      "input_metrics": [
+        "cooling_water_temp",
+        "cooling_water_pressure",
+        "cooling_water_flow"
+      ],
+      "derived_metric_definitions": [
+        {
+          "derived_metric_name": "n/a",
+          "formula": "T_out - T_in",
+          "description": "See rule_expression and threshold_params."
+        }
+      ],
+      "judgment_description": "/ 、 、 3hours, or 24hours 、 abnormal（ ），judge as abnormal.",
+      "rule_expression": "consec_3h(T_in > T_in_max) = true OR consec_3h(T_out > T_out_max) = true OR consec_3h(P_water < P_min OR P_water > P_max) = true OR consec_3h(flow < flow_min) = true OR std_24h(delta_T) > T_std_deltaT OR std_24h(delta_P) > T_std_deltaP",
+      "threshold_params": [
+        {
+          "param_name": "T_in_max",
+          "meaning": "(℃)",
+          "param_value": "33"
+        },
+        {
+          "param_name": "T_out_max",
+          "meaning": "(℃)",
+          "param_value": "40"
+        },
+        {
+          "param_name": "P_min",
+          "meaning": "pressure (MPa)",
+          "param_value": "0.2"
+        },
+        {
+          "param_name": "P_max",
+          "meaning": "pressure (MPa)",
+          "param_value": "0.6"
+        },
+        {
+          "param_name": "flow_min",
+          "meaning": "(m³/h)",
+          "param_value": "100"
+        },
+        {
+          "param_name": "T_std_deltaT",
+          "meaning": "24hours (℃)",
+          "param_value": "2"
+        },
+        {
+          "param_name": "T_std_deltaP",
+          "meaning": "24hours (MPa)",
+          "param_value": "0.05"
+        }
+      ],
+      "conclusion": "cooling_water_params_groupyesnothere isabnormal",
+      "text_description": "/ 、 、 3hours （ 33℃、 40℃、 0.2MPa or 0.6MPa、 100m³/h）， or 24hours 、 abnormal（ 2℃ or 0.05MPa），judge as abnormal.",
+      "complexity_score": 53,
+      "complexity_level": 3,
+      "complexity_detail": {
+        "logic": 24,
+        "atom": 12,
+        "time": 13,
+        "data": 4,
+        "features": {
+          "or_count": 6,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 3,
+          "derived_count": 1,
+          "condition_count": 1,
+          "window_hours_max": 24
+        }
+      }
+    },
+    {
+      "rule_id": "K12",
+      "object_name": "sf6_gas_pressure_density",
+      "object_type": "special_maintenance_metrics",
+      "applicability_conditions": [
+        {
+          "field_name": "bushing_type",
+          "field_value": [
+            "SF6_gas_insulated_bushing"
+          ]
+        }
+      ],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 3,
+        "description": "metric exceeds threshold for 3 consecutive hourly samples"
+      },
+      "temporal_requirements": {
+        "needs_long_observation": true,
+        "window_length": "30d",
+        "statistic": [
+          "slope"
+        ],
+        "missing_data_handling": ">30%"
+      },
+      "input_metrics": [
+        "sf6_gas_pressure_density"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "SF6 pressure 3hours refill alarmpressure， or 30days pressure （slope） limit，judge as abnormalleak .",
+      "rule_expression": "consec_3h(P_SF6 < P_alarm) = true OR slope_30d(P_SF6) < S_min",
+      "threshold_params": [
+        {
+          "param_name": "P_alarm",
+          "meaning": "SF6 refill alarmpressure(MPa)",
+          "param_value": "0.5"
+        },
+        {
+          "param_name": "S_min",
+          "meaning": "30dayspressure slope (MPa/day)",
+          "param_value": "-0.001"
+        }
+      ],
+      "conclusion": "sf6_gas_pressure_densityyesnothere isabnormal",
+      "text_description": "SF6 pressure 3hours 0.5MPa， or 30days pressure （slope） -0.001MPa/day，judge as abnormalleak .",
+      "complexity_score": 34,
+      "complexity_level": 2,
+      "complexity_detail": {
+        "logic": 4,
+        "atom": 5,
+        "time": 23,
+        "data": 2,
+        "features": {
+          "or_count": 1,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 1,
+          "derived_count": 0,
+          "condition_count": 1,
+          "window_hours_max": 720
+        }
+      }
+    },
+    {
+      "rule_id": "K13",
+      "object_name": "c2h2_oltc",
+      "object_type": "special_maintenance_metrics",
+      "applicability_conditions": [
+        {
+          "field_name": "tap_changing_method",
+          "field_value": [
+            "on_load_tap_changing"
+          ]
+        }
+      ],
+      "pointwise_criteria": {
+        "single_point_trigger": true,
+        "consecutive_points": 1,
+        "description": "See rule_expression and threshold_params."
+      },
+      "temporal_requirements": {
+        "needs_long_observation": true,
+        "window_length": "30d",
+        "statistic": [
+          "n/a"
+        ],
+        "missing_data_handling": ">30%"
+      },
+      "input_metrics": [
+        "c2h2_oltc"
+      ],
+      "derived_metric_definitions": [
+        {
+          "derived_metric_name": "OLTC total hydrocarbonsgas generation rate",
+          "formula": "(C2 - C1) / (t2 - t1)",
+          "description": "counts OLTC total hydrocarbons,unitμL/L/day"
+        }
+      ],
+      "judgment_description": "on-load tap changer in acetylene(C2H2)content exceedsattention value， or total hydrocarbonsgas generation rate limit，judge as abnormal.",
+      "rule_expression": "C2H2_oltc > T_C2H2_oltc OR gas_rate_oltc > T_rate_oltc",
+      "threshold_params": [
+        {
+          "param_name": "T_C2H2_oltc",
+          "meaning": "OLTC acetyleneattention value(μL/L)",
+          "param_value": "10"
+        },
+        {
+          "param_name": "T_rate_oltc",
+          "meaning": "OLTC total hydrocarbonsgas generation rateattention value(μL/L/day)",
+          "param_value": "0.5"
+        }
+      ],
+      "conclusion": "c2h2_oltcyesnothere isabnormal",
+      "text_description": "on-load tap changer in acetylene(C2H2) at 30days 10μL/L， or total hydrocarbonsgas generation rate 0.5μL/L/day，judge as abnormal.",
+      "complexity_score": 32,
+      "complexity_level": 2,
+      "complexity_detail": {
+        "logic": 4,
+        "atom": 3,
+        "time": 21,
+        "data": 4,
+        "features": {
+          "or_count": 1,
+          "and_count": 0,
+          "max_nesting": 0,
+          "input_count": 1,
+          "derived_count": 1,
+          "condition_count": 1,
+          "window_hours_max": 720
+        }
+      }
+    },
+    {
+      "rule_id": "K14",
+      "object_name": "：",
+      "object_type": "special_concerns",
+      "applicability_conditions": [
+        {
+          "field_name": "cooling_method",
+          "field_value": [
+            "n/a"
+          ]
+        }
+      ],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 1,
+        "description": "See rule_expression and threshold_params."
+      },
+      "temporal_requirements": {
+        "needs_long_observation": true,
+        "window_length": "90d",
+        "statistic": [
+          "slope",
+          "n/a",
+          "n/a"
+        ],
+        "missing_data_handling": ">30%"
+      },
+      "input_metrics": [
+        "oil_dga_h2",
+        "oil_dga_ch4",
+        "oil_dga_c2h6",
+        "oil_dga_c2h4",
+        "oil_dga_c2h2",
+        "oil_dga_co",
+        "oil_dga_co2",
+        "oil_dga_total_hydrocarbon",
+        "cooling_water_temp",
+        "cooling_water_pressure",
+        "cooling_water_flow"
+      ],
+      "derived_metric_definitions": [
+        {
+          "derived_metric_name": "in",
+          "formula": "(W_current - W_initial) / (t_current - t_initial)",
+          "description": "in,unitppm/day"
+        },
+        {
+          "derived_metric_name": "n/a",
+          "formula": "std_90d(delta_T)",
+          "description": "See rule_expression and threshold_params."
+        },
+        {
+          "derived_metric_name": "oil DGAtotal hydrocarbons",
+          "formula": "slope_90d(oil_dga_total_hydrocarbon)",
+          "description": "90days total hydrocarbons slope，unitμL/L/day"
+        },
+        {
+          "derived_metric_name": "oil DGAhydrogen",
+          "formula": "slope_90d(oil_dga_h2)",
+          "description": "90days hydrogen slope，unitμL/L/day"
+        },
+        {
+          "derived_metric_name": "oil DGA ratio",
+          "formula": "(oil_dga_ch4 + oil_dga_c2h6 + oil_dga_c2h4 + oil_dga_c2h2) / oil_dga_total_hydrocarbon",
+          "description": "total hydrocarbons"
+        },
+        {
+          "derived_metric_name": "oil DGACO_CO2ratio",
+          "formula": "slope_90d(oil_dga_co / oil_dga_co2)",
+          "description": "90days CO/CO2ratio slope"
+        },
+        {
+          "derived_metric_name": "n/a",
+          "formula": "abs(slope_90d(cooling_water_temp)) * abs(slope_90d(cooling_water_pressure)) * abs(slope_90d(cooling_water_flow))",
+          "description": "See rule_expression and threshold_params."
+        }
+      ],
+      "judgment_description": "in （slope>0）， and abnormal, when oil DGAtotal hydrocarbons hydrogen, and CO/CO2ratio or typical . abnormally elevated， 、 、, there is .",
+      "rule_expression": "slope_90d(oil_moisture) > S_moisture AND std_90d(delta_T) > T_std_deltaT_long AND (slope_90d(oil_dga_total_hydrocarbon) > S_total_hydrocarbon OR slope_90d(oil_dga_h2) > S_hydrogen) AND ((oil_dga_ch4 + oil_dga_c2h6 + oil_dga_c2h4 + oil_dga_c2h2) / oil_dga_total_hydrocarbon > R_hydrocarbon_ratio OR slope_90d(oil_dga_co / oil_dga_co2) > S_CO_CO2_ratio) AND (abs(slope_90d(cooling_water_temp)) > S_temp_slope OR abs(slope_90d(cooling_water_pressure)) > S_pressure_slope OR abs(slope_90d(cooling_water_flow)) > S_flow_slope) AND > I_cooling_performance",
+      "threshold_params": [
+        {
+          "param_name": "S_moisture",
+          "meaning": "90days in slope (ppm/day)",
+          "param_value": "0.05"
+        },
+        {
+          "param_name": "T_std_deltaT_long",
+          "meaning": "90days (℃)",
+          "param_value": "1.5"
+        },
+        {
+          "param_name": "S_total_hydrocarbon",
+          "meaning": "90daysoil DGAtotal hydrocarbons slope (μL/L/day)",
+          "param_value": "0.1"
+        },
+        {
+          "param_name": "S_hydrogen",
+          "meaning": "90daysoil DGAhydrogen slope (μL/L/day)",
+          "param_value": "0.05"
+        },
+        {
+          "param_name": "R_hydrocarbon_ratio",
+          "meaning": "（CH4, C2H6, C2H4, C2H2） total hydrocarbons",
+          "param_value": "0.7"
+        },
+        {
+          "param_name": "S_CO_CO2_ratio",
+          "meaning": "90daysoil DGACO/CO2ratio slope",
+          "param_value": "0.01"
+        },
+        {
+          "param_name": "S_temp_slope",
+          "meaning": "90days slope (℃/day)",
+          "param_value": "0.02"
+        },
+        {
+          "param_name": "S_pressure_slope",
+          "meaning": "90days slope (MPa/day)",
+          "param_value": "0.001"
+        },
+        {
+          "param_name": "S_flow_slope",
+          "meaning": "90days slope (L/min/day)",
+          "param_value": "0.1"
+        },
+        {
+          "param_name": "I_cooling_performance",
+          "meaning": "n/a",
+          "param_value": "0.0001"
+        }
+      ],
+      "conclusion": "yesnothere is ？",
+      "text_description": "in （slope>0.05 ppm/day）， and abnormal （90days 1.5℃）， when oil DGAtotal hydrocarbons 0.1 μL/L/day hydrogen 0.05 μL/L/day， and （ total hydrocarbons 0.7） CO/CO2ratio （90days slope 0.01） or typical . abnormally elevated（ 0.0001）， （90days slope 0.02 ℃/day）、 （90days slope 0.001 MPa/day）、 （90days slope 0.1 L/min/day）, there is .",
+      "complexity_score": 95,
+      "complexity_level": 5,
+      "complexity_detail": {
+        "logic": 30,
+        "atom": 25,
+        "time": 21,
+        "data": 19,
+        "features": {
+          "or_count": 4,
+          "and_count": 5,
+          "max_nesting": 3,
+          "input_count": 11,
+          "derived_count": 7,
+          "condition_count": 1,
+          "window_hours_max": 2160
+        }
+      }
+    },
+    {
+      "rule_id": "K15",
+      "object_name": "：SF6 leak",
+      "object_type": "special_concerns",
+      "applicability_conditions": [
+        {
+          "field_name": "bushing_type",
+          "field_value": [
+            "SF6_gas_insulated_bushing"
+          ]
+        }
+      ],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 1,
+        "description": "See rule_expression and threshold_params."
+      },
+      "temporal_requirements": {
+        "needs_long_observation": true,
+        "window_length": "365d",
+        "statistic": [
+          "slope",
+          "counts"
+        ],
+        "missing_data_handling": ">30%"
+      },
+      "input_metrics": [
+        "sf6_gas_pressure_density"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "SF6 pressure, and years refill alarm counts, is there is leak .",
+      "rule_expression": "slope_365d(P_SF6) < S_leak AND count_365d(P_SF6 < P_alarm) >= N_alarm_year",
+      "threshold_params": [
+        {
+          "param_name": "S_leak",
+          "meaning": "365dayspressure slope (MPa/day)",
+          "param_value": "-0.0005"
+        },
+        {
+          "param_name": "N_alarm_year",
+          "meaning": "years refill alarmcounts (counts)",
+          "param_value": "2"
+        }
+      ],
+      "conclusion": "SF6 leak yesnothere is ？",
+      "text_description": "SF6 pressure and 365dayspressure slope -0.0005 MPa/day， and years refill alarm counts 2counts， is there is leak .",
+      "complexity_score": 32,
+      "complexity_level": 2,
+      "complexity_detail": {
+        "logic": 2,
+        "atom": 7,
+        "time": 21,
+        "data": 2,
+        "features": {
+          "or_count": 0,
+          "and_count": 1,
+          "max_nesting": 1,
+          "input_count": 1,
+          "derived_count": 0,
+          "condition_count": 1,
+          "window_hours_max": 8760
+        }
+      }
+    },
+    {
+      "rule_id": "K16",
+      "object_name": "：on-load tap changer（OLTC） and",
+      "object_type": "special_concerns",
+      "applicability_conditions": [
+        {
+          "field_name": "tap_changing_method",
+          "field_value": [
+            "on_load_tap_changing"
+          ]
+        }
+      ],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 1,
+        "description": "See rule_expression and threshold_params."
+      },
+      "temporal_requirements": {
+        "needs_long_observation": true,
+        "window_length": "30d",
+        "statistic": [
+          "n/a",
+          "n/a",
+          "n/a",
+          "counts"
+        ],
+        "missing_data_handling": ">30%"
+      },
+      "input_metrics": [
+        "oltc_overall_status",
+        "c2h2_oltc"
+      ],
+      "derived_metric_definitions": [
+        {
+          "derived_metric_name": "counts",
+          "formula": "count_24h(oltc_operation_event)",
+          "description": "24hours OLTC counts"
+        }
+      ],
+      "judgment_description": "30days OLTC counts, or countsabnormal /, or acetylene /gas generation rate, is OLTC or .",
+      "rule_expression": "(total_operations_30d > T_ops_warn) OR (max_30d(daily_ops) > T_daily_ops_max AND std_30d(daily_ops) > T_daily_ops_std) OR (C2H2_oltc > T_C2H2_oltc_warn AND gas_rate_oltc > T_rate_oltc_warn)",
+      "threshold_params": [
+        {
+          "param_name": "T_ops_warn",
+          "meaning": "30days counts (counts)",
+          "param_value": "500"
+        },
+        {
+          "param_name": "T_daily_ops_max",
+          "meaning": "30days counts (counts)",
+          "param_value": "50"
+        },
+        {
+          "param_name": "T_daily_ops_std",
+          "meaning": "30days counts (counts)",
+          "param_value": "15"
+        },
+        {
+          "param_name": "T_C2H2_oltc_warn",
+          "meaning": "OLTC acetylene (μL/L)",
+          "param_value": "5"
+        },
+        {
+          "param_name": "T_rate_oltc_warn",
+          "meaning": "OLTC total hydrocarbonsgas generation rate (μL/L/day)",
+          "param_value": "0.3"
+        }
+      ],
+      "conclusion": "on-load tap changer and yesnothere is ？",
+      "text_description": "30days OLTC counts 500counts， or countsabnormal / （30days counts 50counts or counts 15counts）， or acetylene （ 5μL/L）/gas generation rate （ 0.3μL/L/day）， is OLTC or .",
+      "complexity_score": 51,
+      "complexity_level": 3,
+      "complexity_detail": {
+        "logic": 15,
+        "atom": 10,
+        "time": 21,
+        "data": 5,
+        "features": {
+          "or_count": 2,
+          "and_count": 2,
+          "max_nesting": 2,
+          "input_count": 2,
+          "derived_count": 1,
+          "condition_count": 1,
+          "window_hours_max": 720
+        }
+      }
+    },
+    {
+      "rule_id": "K17",
+      "object_name": "：standby and",
+      "object_type": "special_concerns",
+      "applicability_conditions": [
+        {
+          "field_name": "primary_standby_role",
+          "field_value": [
+            "standby"
+          ]
+        }
+      ],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 1,
+        "description": "See rule_expression and threshold_params."
+      },
+      "temporal_requirements": {
+        "needs_long_observation": true,
+        "window_length": "180d",
+        "statistic": [
+          "slope",
+          "n/a"
+        ],
+        "missing_data_handling": ">30%"
+      },
+      "input_metrics": [
+        "oil_dga_h2",
+        "oil_dga_ch4",
+        "oil_dga_c2h6",
+        "oil_dga_c2h4",
+        "oil_dga_c2h2",
+        "oil_dga_co",
+        "oil_dga_co2",
+        "oil_dga_total_hydrocarbon",
+        "oil_level",
+        "transformer_body_pressure",
+        "conservator_pressure",
+        "bushing_pressure"
+      ],
+      "derived_metric_definitions": [
+        {
+          "derived_metric_name": "hydrogen",
+          "formula": "slope_180d(H2)",
+          "description": "180days hydrogen slope"
+        },
+        {
+          "derived_metric_name": "oil_level",
+          "formula": "slope_180d(oil_level)",
+          "description": "180days oil_level slope"
+        }
+      ],
+      "judgment_description": "in hydrogen, or oil_level （ ）， is there is or accelerated aging .",
+      "rule_expression": "slope_180d(H2) > S_H2_standby OR slope_180d(oil_level) < S_oil_standby",
+      "threshold_params": [
+        {
+          "param_name": "S_H2_standby",
+          "meaning": "standby180dayshydrogen slope (μL/L/day)",
+          "param_value": "0.1"
+        },
+        {
+          "param_name": "S_oil_standby",
+          "meaning": "standby180daysoil_level slope (mm/day or %/day)",
+          "param_value": "-0.05"
+        }
+      ],
+      "conclusion": "standby and yesno ？",
+      "text_description": "180days in hydrogen （ 0.1μL/L/day）， or oil_level （ -0.05mm/day or %/day， ）， is there is or accelerated aging .",
+      "complexity_score": 43,
+      "complexity_level": 3,
+      "complexity_detail": {
+        "logic": 4,
+        "atom": 10,
+        "time": 21,
+        "data": 8,
+        "features": {
+          "or_count": 1,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 12,
+          "derived_count": 2,
+          "condition_count": 1,
+          "window_hours_max": 4320
+        }
+      }
+    },
+    {
+      "rule_id": "K18",
+      "object_name": "：grid_side_voltage",
+      "object_type": "special_concerns",
+      "applicability_conditions": [
+        {
+          "field_name": "grid_side_voltage",
+          "field_value": [
+            "500kV",
+            "750kV"
+          ]
+        }
+      ],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 1,
+        "description": "and etc."
+      },
+      "temporal_requirements": {
+        "needs_long_observation": true,
+        "window_length": "7d",
+        "statistic": [
+          "mean",
+          "n/a"
+        ],
+        "missing_data_handling": ">30%"
+      },
+      "input_metrics": [
+        "pd_level",
+        "rel_change_tan"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "grid_side_voltage etc.,pd_level or bushingdielectric loss 7daysmean/ etc., is abnormal .",
+      "rule_expression": "(grid_side_voltage='500kV' AND (avg_7d(pd_level) > T_PD_500kV OR max_7d(pd_level) > T_PD_500kV_peak)) OR (grid_side_voltage='750kV' AND (avg_7d(pd_level) > T_PD_750kV OR max_7d(pd_level) > T_PD_750kV_peak)) OR (grid_side_voltage='500kV' AND avg_7d(rel_change_tan) > T_tanδ_500kV) OR (grid_side_voltage='750kV' AND avg_7d(rel_change_tan) > T_tanδ_750kV)",
+      "threshold_params": [
+        {
+          "param_name": "T_PD_500kV",
+          "meaning": "500kVgrid_side_voltage pd_level7daysmean (pC)",
+          "param_value": "300"
+        },
+        {
+          "param_name": "T_PD_500kV_peak",
+          "meaning": "500kVgrid_side_voltage pd_level7days (pC)",
+          "param_value": "800"
+        },
+        {
+          "param_name": "T_PD_750kV",
+          "meaning": "750kVgrid_side_voltage pd_level7daysmean (pC)",
+          "param_value": "200"
+        },
+        {
+          "param_name": "T_PD_750kV_peak",
+          "meaning": "750kVgrid_side_voltage pd_level7days (pC)",
+          "param_value": "600"
+        },
+        {
+          "param_name": "T_tanδ_500kV",
+          "meaning": "500kVgrid_side_voltage bushingdielectric loss7daysmean",
+          "param_value": "0.005"
+        },
+        {
+          "param_name": "T_tanδ_750kV",
+          "meaning": "750kVgrid_side_voltage bushingdielectric loss7daysmean",
+          "param_value": "0.004"
+        }
+      ],
+      "conclusion": "grid_side_voltage yesnothere is abnormal ？",
+      "text_description": "grid_side_voltage etc.,pd_level or bushingdielectric loss 7daysmean/ etc. （ e.g.500kV pd_levelmean 300pC or 800pC，bushingdielectric lossmean 0.005；750kV pd_levelmean 200pC or 600pC，bushingdielectric lossmean 0.004）， is abnormal .",
+      "complexity_score": 72,
+      "complexity_level": 4,
+      "complexity_detail": {
+        "logic": 30,
+        "atom": 22,
+        "time": 17,
+        "data": 3,
+        "features": {
+          "or_count": 5,
+          "and_count": 4,
+          "max_nesting": 3,
+          "input_count": 2,
+          "derived_count": 0,
+          "condition_count": 1,
+          "window_hours_max": 168
+        }
+      }
+    },
+    {
+      "object_name": "dga_ratio_c2h2_c2h4",
+      "object_type": "special_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": true,
+        "consecutive_points": 1,
+        "description": ""
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "oil_dga_c2h2",
+        "oil_dga_c2h4"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "according to IEC 60599ratio,C2H2/C2H4ratio 0.1 there is fault（e.g.arcing discharge） possibility.",
+      "rule_expression": "oil_dga_c2h2 / oil_dga_c2h4 > R_discharge",
+      "threshold_params": [
+        {
+          "param_name": "R_discharge",
+          "meaning": "fault",
+          "param_value": "0.1"
+        }
+      ],
+      "conclusion": "yesnothere is fault？",
+      "rule_id": "K19",
+      "text_description": "according to IEC 60599ratio,C2H2/C2H4ratio 0.1 there is fault（e.g.arcing discharge） possibility.",
+      "complexity_score": 5,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 0,
+        "atom": 1,
+        "time": 2,
+        "data": 2,
+        "features": {
+          "or_count": 0,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 2,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 1
+        }
+      }
+    },
+    {
+      "object_name": "dga_ratio_c2h2_c2h4",
+      "object_type": "special_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": true,
+        "consecutive_points": 1,
+        "description": ""
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "oil_dga_c2h2",
+        "oil_dga_c2h4"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "C2H2/C2H4ratiocontinuously extremely low level（near 0） and total hydrocarbons abnormal， fault,needs attention.",
+      "rule_expression": "oil DGAfault ratio（C2H2/C2H4） < R_low AND oil_dga_total_hydrocarbon > T_total_hydrocarbon",
+      "threshold_params": [
+        {
+          "param_name": "R_low",
+          "meaning": "ratio",
+          "param_value": "0.01"
+        },
+        {
+          "param_name": "T_total_hydrocarbon",
+          "meaning": "total hydrocarbonsabnormal",
+          "param_value": "150"
+        }
+      ],
+      "conclusion": "yesnothere isratio total hydrocarbons at fault？",
+      "rule_id": "K20",
+      "text_description": "C2H2/C2H4ratiocontinuously extremely low level（near 0.01） and total hydrocarbons abnormal（ 150μL/L）， fault,needs attention.",
+      "complexity_score": 8,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 2,
+        "atom": 3,
+        "time": 2,
+        "data": 1,
+        "features": {
+          "or_count": 0,
+          "and_count": 1,
+          "max_nesting": 0,
+          "input_count": 1,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 1
+        }
+      }
+    },
+    {
+      "object_name": "winding_hotspot_temperature_rise",
+      "object_type": "special_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": true,
+        "consecutive_points": 1,
+        "description": ""
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "winding_hotspot_temp",
+        "cooling_water_temp"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "winding_hotspot_temperature_risecontinuously limit，may indicate or cooling system .",
+      "rule_expression": "consec_3h(winding_hotspot_temperature_rise > T_rise_alarm) = true OR winding_hotspot_temperature_rise > T_rise_trip",
+      "threshold_params": [
+        {
+          "param_name": "T_rise_alarm",
+          "meaning": "winding_hotspot_temperature_risealarm",
+          "param_value": "65"
+        },
+        {
+          "param_name": "T_rise_trip",
+          "meaning": "winding_hotspot_temperature_risetrip threshold",
+          "param_value": "75"
+        }
+      ],
+      "conclusion": "winding_hotspot_temperature_riseyesnocontinuously ？",
+      "rule_id": "K21",
+      "text_description": "winding_hotspot_temperature_risecontinuously 65℃alarm, 3hours limit or 75℃trip threshold，may indicate or cooling system .",
+      "complexity_score": 14,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 4,
+        "atom": 2,
+        "time": 7,
+        "data": 1,
+        "features": {
+          "or_count": 1,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 1,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 3
+        }
+      }
+    },
+    {
+      "object_name": "winding_hotspot_temperature_rise",
+      "object_type": "special_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": true,
+        "consecutive_points": 1,
+        "description": ""
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "winding_hotspot_temp",
+        "cooling_water_temp",
+        "cooling_water_temp"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "winding_hotspot_temperature_riseabnormaltoo high， when normal，may indicate abnormal.",
+      "rule_expression": "winding_hotspot_temperature_rise > T_rise_high AND cooling_water_temp >= T_water_min AND cooling_water_temp <= T_water_max",
+      "threshold_params": [
+        {
+          "param_name": "T_rise_high",
+          "meaning": "winding_hotspot_temperature_rise",
+          "param_value": "70"
+        },
+        {
+          "param_name": "T_water_min",
+          "meaning": "normal_range",
+          "param_value": "10"
+        },
+        {
+          "param_name": "T_water_max",
+          "meaning": "normal_range",
+          "param_value": "40"
+        }
+      ],
+      "conclusion": "winding_hotspot_temperature_riseyesno at normal when abnormaltoo high？",
+      "rule_id": "K22",
+      "text_description": "winding_hotspot_temperature_rise 70℃， when at 10℃ 40℃ normal_range,may indicate abnormal.",
+      "complexity_score": 11,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 4,
+        "atom": 3,
+        "time": 2,
+        "data": 2,
+        "features": {
+          "or_count": 0,
+          "and_count": 2,
+          "max_nesting": 0,
+          "input_count": 2,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 1
+        }
+      }
+    },
+    {
+      "object_name": "oil_to_ambient_temperature_diff",
+      "object_type": "common_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": true,
+        "consecutive_points": 1,
+        "description": ""
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "top_oil_temp",
+        "cooling_water_temp"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "and continuouslytoo high，may indicate or",
+      "rule_expression": "consec_3h(oil_to_ambient_temperature_diff > T_diff_high) = true",
+      "threshold_params": [
+        {
+          "param_name": "T_diff_high",
+          "meaning": "and continuouslytoo highalarm threshold",
+          "param_value": "35"
+        }
+      ],
+      "conclusion": "yesno or ？",
+      "rule_id": "K23",
+      "text_description": "and 3hourscontinuouslytoo high 35℃，may indicate or",
+      "complexity_score": 9,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 0,
+        "atom": 1,
+        "time": 7,
+        "data": 1,
+        "features": {
+          "or_count": 0,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 1,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 3
+        }
+      }
+    },
+    {
+      "object_name": "oil_to_ambient_temperature_diff",
+      "object_type": "common_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": true,
+        "consecutive_points": 1,
+        "description": ""
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "top_oil_temp",
+        "cooling_water_temp"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "and continuously,may indicate or abnormal",
+      "rule_expression": "consec_3h(oil_to_ambient_temperature_diff < T_diff_low) = true",
+      "threshold_params": [
+        {
+          "param_name": "T_diff_low",
+          "meaning": "and continuously alarm threshold",
+          "param_value": "5"
+        }
+      ],
+      "conclusion": "yesno or abnormal ？",
+      "rule_id": "K24",
+      "text_description": "and 3hours 5℃，may indicate or abnormal",
+      "complexity_score": 9,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 0,
+        "atom": 1,
+        "time": 7,
+        "data": 1,
+        "features": {
+          "or_count": 0,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 1,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 3
+        }
+      }
+    },
+    {
+      "object_name": "oil_to_ambient_temperature_diff",
+      "object_type": "common_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 3,
+        "description": ""
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "top_oil_temp",
+        "cooling_water_temp"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "and severe，may indicatecooling system",
+      "rule_expression": "std_24h(oil_to_ambient_temperature_diff) > T_diff_std",
+      "threshold_params": [
+        {
+          "param_name": "T_diff_std",
+          "meaning": "and 24hours alarm threshold",
+          "param_value": "8"
+        }
+      ],
+      "conclusion": "yesnocooling system ？",
+      "rule_id": "K25",
+      "text_description": "and severe( and 24hours alarm threshold 8)， and 3hours,may indicatecooling system",
+      "complexity_score": 14,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 0,
+        "atom": 3,
+        "time": 10,
+        "data": 1,
+        "features": {
+          "or_count": 0,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 1,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 24
+        }
+      }
+    },
+    {
+      "object_name": "pressure_diff_body_conservator",
+      "object_type": "special_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": true,
+        "consecutive_points": 1,
+        "description": ""
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "transformer_body_pressure",
+        "conservator_pressure"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "pressure_diff_body_conservatorcontinuouslytoo high，may indicatebreather blockage or restricted oil path。",
+      "rule_expression": "consec_3h(abs(transformer_body_pressure - conservator_pressure) > P_diff_max) = true",
+      "threshold_params": [
+        {
+          "param_name": "P_diff_max",
+          "meaning": "transformer body and conservatorpressure alarm threshold",
+          "param_value": "5"
+        }
+      ],
+      "conclusion": "transformer body and conservatorpressure yesnocontinuouslytoo high？",
+      "rule_id": "K26",
+      "text_description": "pressure_diff_body_conservator 3hourscontinuouslytoo high 5kPa，may indicatebreather blockage or restricted oil path.",
+      "complexity_score": 13,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 3,
+        "atom": 1,
+        "time": 7,
+        "data": 2,
+        "features": {
+          "or_count": 0,
+          "and_count": 0,
+          "max_nesting": 2,
+          "input_count": 2,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 3
+        }
+      }
+    },
+    {
+      "object_name": "pressure_diff_body_conservator",
+      "object_type": "special_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": true,
+        "consecutive_points": 1,
+        "description": ""
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "transformer_body_pressure",
+        "conservator_pressure"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "pressure_diff_body_conservatorcontinuouslyis negative and absolute value too large，may indicateabnormal internal pressure or fault.",
+      "rule_expression": "consec_3h(transformer_body_pressure - conservator_pressure < -P_diff_max) = true",
+      "threshold_params": [
+        {
+          "param_name": "P_diff_max",
+          "meaning": "transformer body and conservatorpressure alarm threshold",
+          "param_value": "5"
+        }
+      ],
+      "conclusion": "transformer bodypressureyesnocontinuously conservatorpressure？",
+      "rule_id": "K27",
+      "text_description": "pressure_diff_body_conservator 3hourscontinuouslyis negative and 5，may indicateabnormal internal pressure or fault.",
+      "complexity_score": 10,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 0,
+        "atom": 1,
+        "time": 7,
+        "data": 2,
+        "features": {
+          "or_count": 0,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 2,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 3
+        }
+      }
+    },
+    {
+      "object_name": "dga_ratio_co2_co",
+      "object_type": "special_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": true,
+        "consecutive_points": 1,
+        "description": ""
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "oil_dga_co2",
+        "oil_dga_co"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "CO2/COratioabnormally elevated，may indicatesolid insulationmaterial（e.g.pressboard）there isabnormalthermal decomposition or accelerated aging。",
+      "rule_expression": "dga_ratio_co2_co > T_ratio_high",
+      "threshold_params": [
+        {
+          "param_name": "T_ratio_high",
+          "meaning": "CO2/COratio",
+          "param_value": "7"
+        }
+      ],
+      "conclusion": "solid insulationmaterialyesnothere isabnormalthermal decomposition or accelerated aging？",
+      "rule_id": "K28",
+      "text_description": "CO2/COratioabnormally elevated 7，may indicatesolid insulationmaterial（e.g.pressboard）there isabnormalthermal decomposition or accelerated aging.",
+      "complexity_score": 5,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 0,
+        "atom": 1,
+        "time": 2,
+        "data": 2,
+        "features": {
+          "or_count": 0,
+          "and_count": 0,
+          "max_nesting": 0,
+          "input_count": 2,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 1
+        }
+      }
+    },
+    {
+      "object_name": "dga_ratio_co2_co",
+      "object_type": "special_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": true,
+        "consecutive_points": 1,
+        "description": ""
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "oil_dga_co2",
+        "oil_dga_co"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "CO2/COratioabnormally reduced，may indicatefault or and typicalsolid insulation inconsistent.",
+      "rule_expression": "dga_ratio_co2_co < T_ratio_low",
+      "threshold_params": [
+        {
+          "param_name": "T_ratio_low",
+          "meaning": "CO2/COratio",
+          "param_value": "3"
+        }
+      ],
+      "conclusion": "fault yesno typicalsolid insulation ？",
+      "rule_id": "K29",
+      "text_description": "CO2/COratioabnormally reduced 3,may indicatefault or and typicalsolid insulation inconsistent.",
+      "complexity_score": 5,
+      "complexity_level": 1,
+      "complexity_detail": {
+        "logic": 0,
+        "atom": 1,
+        "time": 2,
+        "data": 2,
+        "features": {
+          "or_count": 0,
+          "and_count": 0,
+          "max_nesting": 0,
+          "input_count": 2,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 1
+        }
+      }
+    },
+    {
+      "object_name": "dga_ratio_co2_co",
+      "object_type": "special_maintenance_metrics",
+      "applicability_conditions": [],
+      "pointwise_criteria": {
+        "single_point_trigger": false,
+        "consecutive_points": 3,
+        "description": ""
+      },
+      "temporal_requirements": {},
+      "input_metrics": [
+        "oil_dga_co2",
+        "oil_dga_co"
+      ],
+      "derived_metric_definitions": [],
+      "judgment_description": "CO2/COratiocontinuously,may indicatesolid insulationmaterial or thermal decomposition at .",
+      "rule_expression": "slope_30d(dga_ratio_co2_co) > S_ratio_slope",
+      "threshold_params": [
+        {
+          "param_name": "S_ratio_slope",
+          "meaning": "CO2/COratio30daysslope",
+          "param_value": "0.1"
+        }
+      ],
+      "conclusion": "solid insulationmaterial or thermal decomposition yesno at ？",
+      "rule_id": "K30",
+      "text_description": "CO2/COratio at 30days continuously, 30daysslope 0.1 and 3hours,may indicatesolid insulationmaterial or thermal decomposition at .",
+      "complexity_score": 25,
+      "complexity_level": 2,
+      "complexity_detail": {
+        "logic": 0,
+        "atom": 4,
+        "time": 20,
+        "data": 1,
+        "features": {
+          "or_count": 0,
+          "and_count": 0,
+          "max_nesting": 1,
+          "input_count": 1,
+          "derived_count": 0,
+          "condition_count": 0,
+          "window_hours_max": 720
+        }
+      }
+    }
+  ]
+}

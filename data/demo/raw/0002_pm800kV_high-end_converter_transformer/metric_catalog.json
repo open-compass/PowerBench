@@ -1,0 +1,588 @@
+[
+  {
+    "metric_name": "sf6_gas_pressure_density",
+    "variable_name": "sf6_gas_pressure_density",
+    "database_field": "sf6_gas_pressure_density",
+    "data_type": "float",
+    "unit": "MPa",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 0.58,
+      "std": 0.015,
+      "min": 0.53,
+      "max": 0.65,
+      "unit": "MPa",
+      "note": "aligned with K12/K15：P_alarm=0.5。normal band taken as [0.53,0.65]，mean 0.58，avoid background falling below alarm pressure。"
+    }
+  },
+  {
+    "metric_name": "cooling_water_pressure",
+    "variable_name": "cooling_water_pressure",
+    "database_field": "cooling_water_pressure",
+    "data_type": "float",
+    "unit": "MPa",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 0.4,
+      "std": 0.03,
+      "min": 0.3,
+      "max": 0.5,
+      "unit": "MPa",
+      "note": "aligned with K11：P [0.2,0.6] MPa.normal [0.30,0.50]， ."
+    }
+  },
+  {
+    "metric_name": "cooling_water_temp",
+    "variable_name": "cooling_water_temp",
+    "database_field": "cooling_water_temp",
+    "data_type": "float",
+    "unit": "℃",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 26.0,
+      "std": 1.5,
+      "min": 20.0,
+      "max": 31.0,
+      "unit": "℃",
+      "note": "aligned with K11 T_in_max=33； and top_oil_temp derived ."
+    }
+  },
+  {
+    "metric_name": "cooling_water_flow",
+    "variable_name": "cooling_water_flow",
+    "database_field": "cooling_water_flow",
+    "data_type": "float",
+    "unit": "m³/h",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 125.0,
+      "std": 5.0,
+      "min": 110.0,
+      "max": 145.0,
+      "unit": "m³/h",
+      "note": "aligned with K11：flow_min=100.normal 110， min=-273.15."
+    }
+  },
+  {
+    "metric_name": "cooling_system_status",
+    "variable_name": "cooling_system_status",
+    "database_field": "cooling_system_status",
+    "data_type": "string",
+    "unit": "—",
+    "metric_type": "status",
+    "discrete_values": [
+      "running",
+      "stopped",
+      "alarm",
+      "fault"
+    ],
+    "normal_range": {}
+  },
+  {
+    "metric_name": "rel_change_tan",
+    "variable_name": "rel_change_tan",
+    "database_field": "rel_change_tan",
+    "data_type": "float",
+    "unit": "tanδ（dimensionless），capacitance（pF）",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 0.002,
+      "std": 0.0004,
+      "min": 0.0008,
+      "max": 0.0032,
+      "unit": "tanδ（dimensionless）",
+      "note": "bushingdielectric loss tanδ.aligned with K5/K18：T_tanδ=0.007、T_tanδ_500kV=0.005.normal 0.0032."
+    }
+  },
+  {
+    "metric_name": "pd_level",
+    "variable_name": "pd_level",
+    "database_field": "pd_level",
+    "data_type": "float",
+    "unit": "pC",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 40.0,
+      "std": 10.0,
+      "min": 10.0,
+      "max": 120.0,
+      "unit": "pC",
+      "note": "pd_level（,pC）.aligned with K10/K18：T_attention=500、7 mean ≥200.normal ."
+    }
+  },
+  {
+    "metric_name": "c2h2_oltc",
+    "variable_name": "c2h2_oltc",
+    "database_field": "c2h2_oltc",
+    "data_type": "float",
+    "unit": "μL/L",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 0.5,
+      "std": 0.2,
+      "min": 0.0,
+      "max": 2.0,
+      "unit": "μL/L",
+      "note": "aligned with K13/K16：T_C2H2_oltc=10 / warn=5.normal 2.0， ."
+    }
+  },
+  {
+    "metric_name": "oltc_operation_count",
+    "variable_name": "oltc_operation_count",
+    "database_field": "oltc_operation_count",
+    "data_type": "float",
+    "unit": "counts",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 8.0,
+      "std": 3.0,
+      "min": 0.0,
+      "max": 20.0,
+      "unit": "counts",
+      "note": "/ ； K16 months alarm （500）， ."
+    }
+  },
+  {
+    "metric_name": "oltc_overall_status",
+    "variable_name": "oltc_overall_status",
+    "database_field": "oltc_overall_status",
+    "data_type": "string",
+    "unit": "—",
+    "metric_type": "status",
+    "discrete_values": [
+      "running",
+      "stopped",
+      "alarm",
+      "fault",
+      "tap_overlimit"
+    ],
+    "normal_range": {}
+  },
+  {
+    "metric_name": "oltc_tap_position",
+    "variable_name": "oltc_tap_position",
+    "database_field": "oltc_tap_position",
+    "data_type": "float",
+    "unit": "—",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 10.0,
+      "std": 1.5,
+      "min": 5.0,
+      "max": 15.0,
+      "unit": "",
+      "note": "in ；, tap_overlimit ."
+    }
+  },
+  {
+    "metric_name": "oltc_motor_status",
+    "variable_name": "oltc_motor_status",
+    "database_field": "oltc_motor_status",
+    "data_type": "string",
+    "unit": "—",
+    "metric_type": "status",
+    "discrete_values": [
+      "stopped",
+      "running",
+      "fault"
+    ],
+    "normal_range": {}
+  },
+  {
+    "metric_name": "conservator_pressure",
+    "variable_name": "conservator_pressure",
+    "database_field": "conservator_pressure",
+    "data_type": "float",
+    "unit": "KPa",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 50.0,
+      "std": 3.0,
+      "min": 40.0,
+      "max": 60.0,
+      "unit": "kPa",
+      "note": "aligned with K9：P∈(20,80). (~101) . and transformer bodypressure in, K26/K27 |ΔP|<5."
+    }
+  },
+  {
+    "metric_name": "bushing_pressure",
+    "variable_name": "bushing_pressure",
+    "database_field": "bushing_pressure",
+    "data_type": "float",
+    "unit": "KPa",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 50.0,
+      "std": 3.0,
+      "min": 40.0,
+      "max": 60.0,
+      "unit": "kPa",
+      "note": "aligned with K9：P∈(20,80). std<0； and transformer body/conservator ."
+    }
+  },
+  {
+    "metric_name": "transformer_body_pressure",
+    "variable_name": "transformer_body_pressure",
+    "database_field": "transformer_body_pressure",
+    "data_type": "float",
+    "unit": "KPa",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 50.0,
+      "std": 3.0,
+      "min": 40.0,
+      "max": 60.0,
+      "unit": "kPa",
+      "note": "aligned with K9：P∈(20,80). std<0 and max=-102.5； and conservator in ."
+    }
+  },
+  {
+    "metric_name": "oil_level",
+    "variable_name": "oil_level",
+    "database_field": "oil_level",
+    "data_type": "float",
+    "unit": "mm",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 0.0,
+      "std": 15.0,
+      "min": -50.0,
+      "max": 50.0,
+      "unit": "mm",
+      "note": "conservator oil_level，unit mm.aligned with K3：L∈(-100,100).normalrunning [-50,50]， and ."
+    }
+  },
+  {
+    "metric_name": "oil_dga_co",
+    "variable_name": "oil_dga_co",
+    "database_field": "oil_dga_co",
+    "data_type": "float",
+    "unit": "μL/L",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 20.0,
+      "std": 2.0,
+      "min": 14.0,
+      "max": 28.0,
+      "unit": "μL/L",
+      "note": "and CO2 CO2/CO≈5（K28/K29 (3,7)）； K4 T_CO=350."
+    }
+  },
+  {
+    "metric_name": "oil_dga_c2h2",
+    "variable_name": "oil_dga_c2h2",
+    "database_field": "oil_dga_c2h2",
+    "data_type": "float",
+    "unit": "μL/L",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 0.02,
+      "std": 0.01,
+      "min": 0.0,
+      "max": 0.05,
+      "unit": "μL/L",
+      "note": "aligned with K4/K19：T_C2H2=1、R_discharge=0.1. acetylene， C2H2/C2H4 ."
+    }
+  },
+  {
+    "metric_name": "oil_dga_c2h4",
+    "variable_name": "oil_dga_c2h4",
+    "database_field": "oil_dga_c2h4",
+    "data_type": "float",
+    "unit": "μL/L",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 0.8,
+      "std": 0.15,
+      "min": 0.4,
+      "max": 1.3,
+      "unit": "μL/L",
+      "note": "acetylene, C2H2/C2H4≪0.1； K4 T_C2H4=50."
+    }
+  },
+  {
+    "metric_name": "oil_dga_c2h6",
+    "variable_name": "oil_dga_c2h6",
+    "database_field": "oil_dga_c2h6",
+    "data_type": "float",
+    "unit": "μL/L",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 8.0,
+      "std": 3.0,
+      "min": 1.0,
+      "max": 20.0,
+      "unit": "μL/L",
+      "note": "normalethane ； K4 T_C2H6=65."
+    }
+  },
+  {
+    "metric_name": "oil_dga_co2",
+    "variable_name": "oil_dga_co2",
+    "database_field": "oil_dga_co2",
+    "data_type": "float",
+    "unit": "μL/L",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 100.0,
+      "std": 8.0,
+      "min": 80.0,
+      "max": 120.0,
+      "unit": "μL/L",
+      "note": "and CO ratio≈5； std<0. K4 T_CO2=2500."
+    }
+  },
+  {
+    "metric_name": "oil_dga_total_hydrocarbon",
+    "variable_name": "oil_dga_total_hydrocarbon",
+    "database_field": "oil_dga_total_hydrocarbon",
+    "data_type": "float",
+    "unit": "μL/L",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 40.0,
+      "std": 10.0,
+      "min": 10.0,
+      "max": 80.0,
+      "unit": "μL/L",
+      "note": "aligned with K20：T_total_hydrocarbon=150. 0.35μL/L and, is total hydrocarbons ."
+    }
+  },
+  {
+    "metric_name": "oil_dga_h2",
+    "variable_name": "oil_dga_h2",
+    "database_field": "oil_dga_h2",
+    "data_type": "float",
+    "unit": "μL/L",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 40.0,
+      "std": 10.0,
+      "min": 10.0,
+      "max": 80.0,
+      "unit": "μL/L",
+      "note": "K4 T_H2=150；min ."
+    }
+  },
+  {
+    "metric_name": "oil_dga_ch4",
+    "variable_name": "oil_dga_ch4",
+    "database_field": "oil_dga_ch4",
+    "data_type": "float",
+    "unit": "μL/L",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 12.0,
+      "std": 4.0,
+      "min": 2.0,
+      "max": 28.0,
+      "unit": "μL/L",
+      "note": "K4 T_CH4=60."
+    }
+  },
+  {
+    "metric_name": "winding_hotspot_temp",
+    "variable_name": "winding_hotspot_temp",
+    "database_field": "winding_hotspot_temp",
+    "data_type": "float",
+    "unit": "℃",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 80.0,
+      "std": 5.0,
+      "min": 60.0,
+      "max": 100.0,
+      "unit": "℃",
+      "note": "aligned with K2(T_alarm=120)； in ≈54， K21=65."
+    }
+  },
+  {
+    "metric_name": "core_ground_current",
+    "variable_name": "core_ground_current",
+    "database_field": "core_ground_current",
+    "data_type": "float",
+    "unit": "mA",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 35.0,
+      "std": 10.0,
+      "min": 5.0,
+      "max": 70.0,
+      "unit": "mA",
+      "note": "aligned with K6：T_alarm=100. min=max=-10 ."
+    }
+  },
+  {
+    "metric_name": "top_oil_temp",
+    "variable_name": "top_oil_temp",
+    "database_field": "top_oil_temp",
+    "data_type": "float",
+    "unit": "℃",
+    "metric_type": "raw",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 55.0,
+      "std": 4.0,
+      "min": 40.0,
+      "max": 70.0,
+      "unit": "℃",
+      "note": "aligned with K1(T_alarm=85) and derived oil_to_ambient= top_oil-cooling_water； ~26 in ≈29， K23>35."
+    }
+  },
+  {
+    "metric_name": "oil_to_ambient_temperature_diff",
+    "variable_name": "oil_to_ambient_temperature_diff",
+    "database_field": "oil_to_ambient_temperature_diff",
+    "data_type": "float",
+    "unit": "℃",
+    "metric_type": "derived",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 22.0,
+      "std": 3.0,
+      "min": 12.0,
+      "max": 32.0,
+      "unit": "℃",
+      "note": "derived/ .aligned with K23/K24：>(35)/<(5).normal at [12,32]."
+    }
+  },
+  {
+    "metric_name": "winding_hotspot_temperature_rise",
+    "variable_name": "winding_hotspot_temperature_rise",
+    "database_field": "winding_hotspot_temperature_rise",
+    "data_type": "float",
+    "unit": "℃",
+    "metric_type": "derived",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 50.0,
+      "std": 3.0,
+      "min": 40.0,
+      "max": 60.0,
+      "unit": "℃",
+      "note": "derived/ .aligned with K21/K22： ≥65.normal 60℃."
+    }
+  },
+  {
+    "metric_name": "dga_ratio_c2h2_c2h4",
+    "variable_name": "dga_ratio_c2h2_c2h4",
+    "database_field": "dga_ratio_c2h2_c2h4",
+    "data_type": "float",
+    "unit": "—",
+    "metric_type": "derived",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 0.03,
+      "std": 0.01,
+      "min": 0.0,
+      "max": 0.08,
+      "unit": "",
+      "note": "derivedratio.aligned with K19：R_discharge=0.1.normal 0.08."
+    }
+  },
+  {
+    "metric_name": "dga_ratio_co2_co",
+    "variable_name": "dga_ratio_co2_co",
+    "database_field": "dga_ratio_co2_co",
+    "data_type": "float",
+    "unit": "—",
+    "metric_type": "derived",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 5.0,
+      "std": 0.3,
+      "min": 3.8,
+      "max": 6.2,
+      "unit": "",
+      "note": "derivedratio.aligned with K28/K29：(3,7).normal in 5.0."
+    }
+  },
+  {
+    "metric_name": "pressure_diff_body_conservator",
+    "variable_name": "pressure_diff_body_conservator",
+    "database_field": "pressure_diff_body_conservator",
+    "data_type": "float",
+    "unit": "KPa",
+    "metric_type": "derived",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 0.5,
+      "std": 0.4,
+      "min": -2.0,
+      "max": 2.0,
+      "unit": "kPa",
+      "note": "derived .aligned with K26/K27：|ΔP|>5.normal |ΔP|≤2."
+    }
+  },
+  {
+    "metric_name": "P_SF6",
+    "variable_name": "P_SF6",
+    "database_field": "P_SF6",
+    "data_type": "float",
+    "unit": "MPa",
+    "metric_type": "derived",
+    "discrete_values": [],
+    "normal_range": {
+      "mean": 0.58,
+      "std": 0.015,
+      "min": 0.53,
+      "max": 0.65,
+      "unit": "MPa",
+      "note": "when, and sf6_gas_pressure_density . K12/K15 ."
+    }
+  },
+  {
+    "metric_name": "cooling_status",
+    "variable_name": "cooling_status",
+    "database_field": "cooling_status",
+    "data_type": "string",
+    "unit": "—",
+    "metric_type": "derived",
+    "discrete_values": [
+      "running",
+      "stopped",
+      "alarm",
+      "fault"
+    ],
+    "normal_range": {}
+  },
+  {
+    "metric_name": "oltc_status",
+    "variable_name": "oltc_status",
+    "database_field": "oltc_status",
+    "data_type": "string",
+    "unit": "—",
+    "metric_type": "derived",
+    "discrete_values": [
+      "running",
+      "stopped",
+      "alarm",
+      "fault",
+      "tap_overlimit"
+    ],
+    "normal_range": {}
+  }
+]

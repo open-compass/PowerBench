@@ -1,0 +1,86 @@
+{
+  "source_xlsx": "data/demo/models/0002_pm800kV_high-end_converter_transformer/0002_pm800kV_high-end_converter_transformer.xlsx",
+  "sheet_name": "device inventory",
+  "exclude_columns": [
+    "system_affiliation",
+    "project",
+    "device_name",
+    "installation_location",
+    "device_code"
+  ],
+  "dimensions": [
+    {
+      "column": "system_position",
+      "unique_values": [
+        "pole_1",
+        "pole_2"
+      ],
+      "unique_count": 2
+    },
+    {
+      "column": "phase",
+      "unique_values": [
+        "phase_A",
+        "phase_B",
+        "phase_C"
+      ],
+      "unique_count": 3
+    },
+    {
+      "column": "unit_number",
+      "unique_values": [
+        "unit_1",
+        "unit_2"
+      ],
+      "unique_count": 2
+    },
+    {
+      "column": "primary_standby_role",
+      "unique_values": [
+        "primary",
+        "standby"
+      ],
+      "unique_count": 2
+    },
+    {
+      "column": "connection_type",
+      "unique_values": [
+        "Y/Y",
+        "Y/△"
+      ],
+      "unique_count": 2
+    },
+    {
+      "column": "cooling_method",
+      "unique_values": [
+        "forced_oil_forced_air",
+        "forced_oil_forced_air"
+      ],
+      "unique_count": 2
+    },
+    {
+      "column": "bushing_type",
+      "unique_values": [
+        "SF6_gas_insulated_bushing",
+        "SF6_gas_insulated_bushing"
+      ],
+      "unique_count": 2
+    },
+    {
+      "column": "grid_side_voltage",
+      "unique_values": [
+        "500kV",
+        "750kV"
+      ],
+      "unique_count": 2
+    },
+    {
+      "column": "tap_changing_method",
+      "unique_values": [
+        "on_load_tap_changing",
+        "n/a"
+      ],
+      "unique_count": 2
+    }
+  ]
+}

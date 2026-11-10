@@ -1,0 +1,40 @@
+{
+  "schema_version": "0.2.0",
+  "seed": 20260902,
+  "task_counts": {
+    "L1": 30,
+    "L2": 30,
+    "L3": 30
+  },
+  "scope_sizes": [100, 300, 761],
+  "scope_seeds": [11, 23, 37],
+  "l1": {
+    "window_hours": [48, 72, 168],
+    "answer_round_digits": 4
+  },
+  "l2": {
+    "window_hours": [72, 168],
+    "threshold_factors": [0.50, 0.70, 0.80, 0.90, 1.10, 1.20, 1.30, 1.50]
+  },
+  "l3": {
+    "device_counts": [3, 4, 5],
+    "window_hours": 72,
+    "threshold_factors": [0.50, 0.70, 0.80, 0.90, 1.10, 1.20, 1.30, 1.50]
+  },
+  "candidate_search": {
+    "locator_max_fields": 14,
+    "l1_max_reports_per_device": 4,
+    "l1_max_metrics_per_device": 8,
+    "l3_max_local_options_per_device": 4,
+    "l3_max_candidates_per_group_pattern": 4
+  },
+  "retrieval": {
+    "max_tool_rounds": 24,
+    "max_read_lines": 240,
+    "max_timeseries_rows": 500,
+    "max_total_read_bytes": 1500000,
+    "python_timeout_seconds": 8,
+    "python_max_output_chars": 12000,
+    "format_retries": 1
+  }
+}

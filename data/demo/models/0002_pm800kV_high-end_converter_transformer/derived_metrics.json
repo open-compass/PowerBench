@@ -1,0 +1,158 @@
+{
+  "device_type": "±800kV high-end converter transformer",
+  "derived_metrics": [
+    {
+      "derived_name": "dga_ratio_c2h2_c2h4",
+      "derived_key": "dga_ratio_c2h2_c2h4",
+      "description": "acetylene and ethylene ratio，yes fault（e.g.arcing discharge） and fault ratio .",
+      "atomic_metrics": [
+        {
+          "db_field": "oil_dga_c2h2",
+          "indicator_name": "oil_dga_c2h2",
+          "unit": "μL/L"
+        },
+        {
+          "db_field": "oil_dga_c2h4",
+          "indicator_name": "oil_dga_c2h4",
+          "unit": "μL/L"
+        }
+      ],
+      "formula": "oil_dga_c2h2 / oil_dga_c2h4",
+      "output_unit": "",
+      "value_type": "continuous",
+      "prerequisites": [
+        "is when 。C2H4 is 0。"
+      ],
+      "references": [
+        "IEC 60599 ratio fault",
+        "DL/T 722 in"
+      ]
+    },
+    {
+      "derived_name": "winding_hotspot_temperature_rise",
+      "derived_key": "winding_hotspot_temperature_rise",
+      "description": "winding_hotspot_temp and （ ）, .",
+      "atomic_metrics": [
+        {
+          "db_field": "winding_hotspot_temp",
+          "indicator_name": "winding_hotspot_temp",
+          "unit": "℃"
+        },
+        {
+          "db_field": "cooling_water_temp",
+          "indicator_name": "cooling_water_temp",
+          "unit": "℃"
+        }
+      ],
+      "formula": "winding_hotspot_temp - cooling_water_temp",
+      "output_unit": "℃",
+      "value_type": "continuous",
+      "prerequisites": [
+        "is when 。 。"
+      ],
+      "references": [
+        "GB/T 1094.7 7 ：",
+        "winding_hotspot_tempcalculated and"
+      ]
+    },
+    {
+      "derived_name": "oil_to_ambient_temperature_diff",
+      "derived_key": "oil_to_ambient_temperature_diff",
+      "description": "top_oil_temp and （ is ）, .",
+      "atomic_metrics": [
+        {
+          "db_field": "top_oil_temp",
+          "indicator_name": "top_oil_temp",
+          "unit": "℃"
+        },
+        {
+          "db_field": "cooling_water_temp",
+          "indicator_name": "cooling_water_temp",
+          "unit": "℃"
+        }
+      ],
+      "formula": "top_oil_temp - cooling_water_temp",
+      "output_unit": "℃",
+      "value_type": "continuous",
+      "prerequisites": [
+        "is when 。 。"
+      ],
+      "references": [
+        "n/a",
+        "calculated"
+      ]
+    },
+    {
+      "derived_name": "pressure_diff_body_conservator",
+      "derived_key": "pressure_diff_body_conservator",
+      "description": "transformer bodypressure and conservatorpressure, .abnormal may indicatebreather blockage or abnormal internal pressure.",
+      "atomic_metrics": [
+        {
+          "db_field": "transformer_body_pressure",
+          "indicator_name": "transformer_body_pressure",
+          "unit": "KPa"
+        },
+        {
+          "db_field": "conservator_pressure",
+          "indicator_name": "conservator_pressure",
+          "unit": "KPa"
+        }
+      ],
+      "formula": "transformer_body_pressure - conservator_pressure",
+      "output_unit": "KPa",
+      "value_type": "continuous",
+      "prerequisites": [
+        "is when ， and pressureunit （ is KPa）。"
+      ],
+      "references": [
+        "n/a",
+        "pressure"
+      ]
+    },
+    {
+      "derived_name": "dga_ratio_co2_co",
+      "derived_key": "dga_ratio_co2_co",
+      "description": "carbon dioxide and carbon monoxide ratio， solid insulationmaterial（e.g.pressboard） thermal decomposition .",
+      "atomic_metrics": [
+        {
+          "db_field": "oil_dga_co2",
+          "indicator_name": "oil_dga_co2",
+          "unit": "μL/L"
+        },
+        {
+          "db_field": "oil_dga_co",
+          "indicator_name": "oil_dga_co",
+          "unit": "μL/L"
+        }
+      ],
+      "formula": "oil_dga_co2 / oil_dga_co",
+      "output_unit": "",
+      "value_type": "continuous",
+      "prerequisites": [
+        "is when 。CO is 0。"
+      ],
+      "references": [
+        "IEC 60599 solid insulation",
+        "DL/T 722 in"
+      ]
+    }
+  ],
+  "removed": [
+    {
+      "derived_key": "dga_three_ratio_code",
+      "reason": "LLM inconsistent"
+    },
+    {
+      "derived_key": "total_hydrocarbon_generation_rate_absolute",
+      "reason": "LLM inconsistent"
+    },
+    {
+      "derived_key": "oltc_operation_frequency_indicator",
+      "reason": "LLM inconsistent"
+    },
+    {
+      "derived_key": "core_ground_current_composite_status",
+      "reason": "LLM inconsistent"
+    }
+  ]
+}

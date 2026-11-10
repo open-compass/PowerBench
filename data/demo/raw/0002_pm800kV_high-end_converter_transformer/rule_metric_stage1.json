@@ -1,0 +1,370 @@
+{
+  "device_type": "±800kV high-end converter transformer",
+  "instance_locating_fields": [
+    "device_name"
+  ],
+  "auxiliary_classification_fields": [
+    "connection_type",
+    "cooling_method",
+    "bushing_type",
+    "grid_side_voltage",
+    "tap_changing_method",
+    "primary_standby_role"
+  ],
+  "common_maintenance_metrics": [
+    {
+      "metric_name": "top_oil_temp",
+      "metric_definition": "running .",
+      "data_type": "numeric",
+      "unit": "℃",
+      "value_range": "or code ， trip threshold。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "winding_hotspot_temp",
+      "metric_definition": "See rule_expression and threshold_params.",
+      "data_type": "numeric",
+      "unit": "℃",
+      "value_range": "or code ， trip threshold。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "oil_level",
+      "metric_definition": "See rule_expression and threshold_params.",
+      "data_type": "numeric",
+      "unit": "mm or",
+      "value_range": "， 、 oil_level 。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "oil_dga_h2",
+      "metric_definition": "in hydrogen, / fault etc..",
+      "data_type": "numeric",
+      "unit": "μL/L",
+      "value_range": "DL/T 722 etc.code attention value、 。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "oil_dga_ch4",
+      "metric_definition": "in methane, etc.fault.",
+      "data_type": "numeric",
+      "unit": "μL/L",
+      "value_range": "DL/T 722 etc.code attention value、 。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "oil_dga_c2h6",
+      "metric_definition": "in ethane, etc.fault.",
+      "data_type": "numeric",
+      "unit": "μL/L",
+      "value_range": "DL/T 722 etc.code attention value、 。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "oil_dga_c2h4",
+      "metric_definition": "in ethylene, in etc.fault.",
+      "data_type": "numeric",
+      "unit": "μL/L",
+      "value_range": "DL/T 722 etc.code attention value、 。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "oil_dga_c2h2",
+      "metric_definition": "in acetylene, and arcing discharge/ .",
+      "data_type": "numeric",
+      "unit": "μL/L",
+      "value_range": "DL/T 722 etc.code attention value、 。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "oil_dga_co",
+      "metric_definition": "in carbon monoxide, solid insulationmaterialthermal decomposition etc.fault.",
+      "data_type": "numeric",
+      "unit": "μL/L",
+      "value_range": "DL/T 722 etc.code attention value、 。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "oil_dga_co2",
+      "metric_definition": "in carbon dioxide, solid insulationmaterial or thermal decomposition etc.fault.",
+      "data_type": "numeric",
+      "unit": "μL/L",
+      "value_range": "DL/T 722 etc.code attention value、 。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "oil_dga_total_hydrocarbon",
+      "metric_definition": "in methane、ethane、ethylene、acetylene etc., in .",
+      "data_type": "numeric",
+      "unit": "μL/L",
+      "value_range": "DL/T 722 etc.code attention value、 。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "rel_change_tan",
+      "metric_definition": "bushing (tanδ) capacitance， bushing .",
+      "data_type": "numeric",
+      "unit": "tanδ（dimensionless），capacitance（pF）",
+      "value_range": "or code ， and or ， 。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "core_ground_current",
+      "metric_definition": "leak, yesnothere is fault.",
+      "data_type": "numeric",
+      "unit": "mA or A",
+      "value_range": "or code ， alarm threshold（e.g.100mA）。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "cooling_system_status",
+      "metric_definition": "（e.g. 、 、 ） 、running fault .",
+      "data_type": "discrete",
+      "unit": "",
+      "value_range": "",
+      "discrete_values": [
+        "running",
+        "stopped",
+        "fault",
+        "alarm"
+      ],
+      "notes": ""
+    },
+    {
+      "metric_name": "oltc_tap_position",
+      "metric_definition": "on-load tap changer before .",
+      "data_type": "numeric",
+      "unit": "",
+      "value_range": "",
+      "discrete_values": [],
+      "notes": "See rule_expression and threshold_params."
+    },
+    {
+      "metric_name": "oltc_operation_count",
+      "metric_definition": "on-load tap changer counts .",
+      "data_type": "numeric",
+      "unit": "counts",
+      "value_range": "",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "oltc_motor_status",
+      "metric_definition": "on-load tap changer running .",
+      "data_type": "discrete",
+      "unit": "",
+      "value_range": "",
+      "discrete_values": [
+        "running",
+        "stopped",
+        "fault"
+      ],
+      "notes": ""
+    },
+    {
+      "metric_name": "oltc_overall_status",
+      "metric_definition": "on-load tap changer running .",
+      "data_type": "discrete",
+      "unit": "",
+      "value_range": "",
+      "discrete_values": [
+        "running",
+        "stopped",
+        "fault",
+        "alarm",
+        "tap_overlimit"
+      ],
+      "notes": "、 etc. ."
+    },
+    {
+      "metric_name": "transformer_body_pressure",
+      "metric_definition": "transformer body pressure or density.",
+      "data_type": "numeric",
+      "unit": "kPa or MPa",
+      "value_range": "， normalpressure alarm threshold。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "conservator_pressure",
+      "metric_definition": "conservator pressure or density.",
+      "data_type": "numeric",
+      "unit": "kPa or MPa",
+      "value_range": "， normalpressure alarm threshold。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "bushing_pressure",
+      "metric_definition": "bushing pressure or density.",
+      "data_type": "numeric",
+      "unit": "kPa or MPa",
+      "value_range": "， normalpressure alarm threshold。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "pd_level",
+      "metric_definition": "or bushing etc., .",
+      "data_type": "numeric",
+      "unit": "pC or mV",
+      "value_range": "or code ， background value、attention value、 。",
+      "discrete_values": [],
+      "notes": ""
+    }
+  ],
+  "special_maintenance_metrics": [
+    {
+      "metric_name": "cooling_water_temp",
+      "metric_definition": "forced_oil_forced_air, /, .",
+      "data_type": "numeric",
+      "unit": "℃",
+      "value_range": "or runningcode 。",
+      "discrete_values": [],
+      "notes": "",
+      "trigger_condition": [
+        {
+          "field_name": "cooling_method",
+          "field_value": [
+            "forced_oil_forced_air"
+          ]
+        }
+      ]
+    },
+    {
+      "metric_name": "cooling_water_pressure",
+      "metric_definition": "forced_oil_forced_air,, .",
+      "data_type": "numeric",
+      "unit": "kPa or MPa",
+      "value_range": "or runningcode 。",
+      "discrete_values": [],
+      "notes": "",
+      "trigger_condition": [
+        {
+          "field_name": "cooling_method",
+          "field_value": [
+            "forced_oil_forced_air"
+          ]
+        }
+      ]
+    },
+    {
+      "metric_name": "cooling_water_flow",
+      "metric_definition": "forced_oil_forced_air,, .",
+      "data_type": "numeric",
+      "unit": "m³/h",
+      "value_range": "or runningcode 。",
+      "discrete_values": [],
+      "notes": "",
+      "trigger_condition": [
+        {
+          "field_name": "cooling_method",
+          "field_value": [
+            "forced_oil_forced_air"
+          ]
+        }
+      ]
+    },
+    {
+      "metric_name": "sf6_gas_pressure_density",
+      "metric_definition": "SF6_gas_insulated_bushing， SF6 pressure or density， .",
+      "data_type": "numeric",
+      "unit": "kPa or MPa",
+      "value_range": "， pressure、refill alarmpressure、 pressure etc.。",
+      "discrete_values": [],
+      "notes": ""
+    },
+    {
+      "metric_name": "c2h2_oltc",
+      "metric_definition": "on_load_tap_changing, on-load tap changer, fault.",
+      "data_type": "numeric",
+      "unit": "μL/L",
+      "value_range": "DL/T 722 etc.code attention value、 ， acetylene yes 。",
+      "discrete_values": [],
+      "trigger_condition": [
+        {
+          "field_name": "tap_changing_method",
+          "field_value": [
+            "on_load_tap_changing"
+          ]
+        }
+      ]
+    }
+  ],
+  "special_concerns": [
+    {
+      "concern_description": "forced_oil_forced_air,, in . when needs attention 、 .",
+      "temporal_notes": "needs attention in, 、 .",
+      "trigger_condition": [
+        {
+          "field_name": "cooling_method",
+          "field_value": [
+            "forced_oil_forced_air"
+          ]
+        }
+      ]
+    },
+    {
+      "concern_description": "SF6_gas_insulated_bushing, SF6 leak .leak bushing, pressure . .",
+      "temporal_notes": "needs attentionSF6 pressure, .",
+      "trigger_condition": [
+        {
+          "field_name": "bushing_type",
+          "field_value": [
+            "SF6_gas_insulated_bushing"
+          ]
+        }
+      ]
+    },
+    {
+      "concern_description": "on_load_tap_changing, on-load tap changer（OLTC） 、 、 . or running after fault .",
+      "temporal_notes": "needs attention counts 、 counts、 when 、 etc. .",
+      "trigger_condition": [
+        {
+          "field_name": "tap_changing_method",
+          "field_value": [
+            "on_load_tap_changing"
+          ]
+        }
+      ]
+    },
+    {
+      "concern_description": "standby， or 、 . is, when normal .",
+      "temporal_notes": "needs attention （e.g. 、oil DGA、 ） .",
+      "trigger_condition": [
+        {
+          "field_name": "primary_standby_role",
+          "field_value": [
+            "standby"
+          ]
+        }
+      ]
+    },
+    {
+      "concern_description": "grid_side_voltage etc. （e.g.500kV and 750kV）, 、running 、 . and grid_side_voltage （e.g. 、dielectric loss） .",
+      "temporal_notes": "",
+      "trigger_condition": [
+        {
+          "field_name": "grid_side_voltage",
+          "field_value": [
+            "500kV",
+            "750kV"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "powerbench"
+version = "0.2.0"
+description = "PowerBench: agentic retrieval and reasoning benchmark for power systems"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas>=2.2.0",
+  "openpyxl>=3.1.2",
+  "requests>=2.31.0",
+  "pydantic>=2.10,<3",
+  "jsonschema>=4.23,<5",
+  "openai>=2.0,<3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<9",
+  "ruff>=0.9,<1",
+]
+
+[project.scripts]
+powerbench = "powerbench.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["powerbench*"]
