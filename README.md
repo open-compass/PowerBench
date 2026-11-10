@@ -454,3 +454,27 @@ python -m powerbench tasks build \
   --raw-root data/demo/raw \
   --output-root output/demo_pilot
 ```
+## 🤝 Contributing
+
+Contributions are welcome. We encourage using this framework to contribute to benchmarking AI skills in power system.
+
+<a id="citation"></a>
+
+## 📚 Citation
+
+If you find this work or the MS-FFSD dataset useful in your research, please consider citing our paper:
+
+```bibtex
+@article{wang2026powerbench,
+  title={PowerBench: A Benchmark for Agentic Retrieval and Reasoning in Power Systems},
+  author={Wang, Xijing and Yao, Yinsheng and Ding, Jinru and Jiang, Yidong and Xu, Ziwen and Jiang, Yiwen and Xu, Jie and Cheng, Dawei},
+  journal={arXiv preprint arXiv:2609.34492},
+  year={2026}
+}
+```
+
+## All Thanks to Our Contributors :
+
+<a href="https://github.com/open-compass/PowerBench/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=open-compass/PowerBench" />
+</a>
