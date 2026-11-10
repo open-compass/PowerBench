@@ -1,5 +1,4 @@
-# ⚡ PowerBench  
-### A Benchmark for Agentic Retrieval and Reasoning in Power Systems
+# ⚡ PowerBench:A Benchmark for Agentic Retrieval and Reasoning in Power Systems
 
 <p align="center">
   <img src="https://img.shields.io/badge/Domain-Power%20Systems-0F766E?style=flat-square&logo=lightning&logoColor=white" alt="Power Systems">
@@ -21,16 +20,29 @@ PowerBench comprises (1) a **generation framework** that derives interconnected 
 
 Building on that dataset, we construct **300 questions** across three task families—**TRR**, **CRR**, and **CoRR**—that require autonomous evidence retrieval and reasoning across interconnected heterogeneous sources under restricted tool calls and time budgets.
 
-> **What this repository contains.** 
-> We release the **complete source code** for (1) the framework for generating data (`powerbench/generation/`) 
-> · and (2) the construction and evaluation of benchmark task families (`powerbench/tasks/`, with top-level `configs/`). 
-> · A **minimal demo with one type** under `data/demo/models/` and `data/demo/raw/` is included so the generation chain is inspectable. 
-> · Install with `pip install -e .` (see `pyproject.toml` / `requirements.txt`).
+## 📦 What Is Released
 
-> **What is deferred.** 
-> The full dataset is large (761 devices, ~13.35M hourly telemetry rows, 24,939 operational documents, the 300-question bundle, and model run traces). 
-> They are **not** part of this code checkout (see [Full dataset release](#full-dataset-release)). 
-> After review, we will publish the complete English corpus and evaluation products on our **official public GitHub** / data host.
+This repository provides the **complete source code** for the PowerBench data-generation framework and benchmark pipeline:
+
+- **Data generation:** `powerbench/generation/`
+- **Benchmark construction and evaluation:** `powerbench/tasks/` and `configs/`
+- **Runnable demo:** one equipment type is included under `data/demo/models/` and `data/demo/raw/` so that the end-to-end generation pipeline can be inspected.
+
+Install the package with:
+
+```bash
+pip install -e .
+```
+
+See `pyproject.toml` and `requirements.txt` for the project dependencies.
+
+## 📥 Dataset Availability
+
+The **full PowerBench dataset is not included** in this code repository. Its public release is temporarily deferred while we prepare the English version of the dataset.
+
+The existing **Chinese-language dataset can be requested**. If you are interested in accessing it, please [open a GitHub issue](https://github.com/open-compass/PowerBench/issues) describing your intended use and a preferred way for us to contact you. We will follow up to coordinate access.
+
+For the dataset scale and release details, see [📦 Contents](#contents).
 
 <p align="center">
   <a href="#overview">✨ Overview</a> ·
@@ -40,7 +52,6 @@ Building on that dataset, we construct **300 questions** across three task famil
   <a href="#heterogeneousqa">🔧 HeterogeneousQA</a> ·
   <a href="#evaluation">📊 Evaluation</a> ·
   <a href="#quick-start">🚀 Quick Start</a> ·
-  <a href="#full-dataset-release">📥 Full dataset</a>
 </p>
 
 ---
@@ -60,7 +71,7 @@ $$
 - $\mathcal{T}_d$: hourly telemetry (background + fault and near-miss events)
 - $\mathcal{D}_d$: operational documents (device archive, inspection reports, fault reports)
 
-Instead of generating different data sources independently, the dataset is constructed from dependency chain:
+Instead of generating different data sources independently, the dataset is constructed through a shared dependency chain:
 
 $$
 \mathcal{M}_d \rightarrow \mathcal{R}_d,\qquad
@@ -74,19 +85,19 @@ Agents must retrieve evidence across these sources, call tools for analysis, and
 
 <a id="contents"></a>
 
-## 📦 What Is Included?
+## 📦 Contents
 
-The current release contains the following dataset and benchmark resources:
+The following statistics describe the **full PowerBench dataset**:
 
 | Statistic                     | Value                   |
 | ----------------------------- | ------------------------|
 | Device types                  | 100                     |
 | Device instances              | 761                     |
-| Metrics                       | 1,275+203=1,478         |
+| Metrics                       | 1,478 (1,275 atomic + 203 derived) |
 | Rules                         | 2,044                   |
 | Telemetry                     | 13,350,984 (~13.35M)    |
 | Metric values                 | 207,878,856             |
-| Report                        | 761+9,132+15,046=24,939 |
+| Operational documents        | 24,939 (761 archives, 9,132 inspection reports, 15,046 fault reports) |
 | Period                        | 2024-01-01 – 2025-12-31 |
 | Benchmark questions           | 300                     |
 | Evaluated LLMs                | 9                       |
@@ -226,8 +237,8 @@ PowerBench-Code/
 │   │   └── device_models.xlsx
 │   ├── schemas/
 │   └── demo/
-│       ├── models/0002_…/     # demo type workspace + pipeline_generate/ plugins
-│       └── raw/0002_…/        # demo frozen O_d (default --raw-root)
+│       ├── models/0002_pm800kV_high-end_converter_transformer/  # demo type workspace
+│       └── raw/0002_pm800kV_high-end_converter_transformer/     # demo frozen data
 │
 └── powerbench/
     ├── cli.py               
@@ -273,6 +284,7 @@ The complete data and evaluation flow is summarized below:
 
 PowerBench evaluates agents under a common tool interface and fixed resource budgets.
 
+
 ### ⚙️ Default Experimental Setting
 
 - 300 benchmark questions
@@ -313,23 +325,20 @@ The paper evaluation includes nine LLMs:
 | Qwen3.8-Max           |
 | Llama-4-Maverick      |
 
+### 🤖 Model Evaluated Results
+<p align="center">
+  <img src="./figs/results.png" width="90%" alt="Overview of the three PowerBench task families">
+</p>
+
+<p align="center">
+  <img src="./figs/results2.png" width="90%" alt="Overview of the three PowerBench task families">
+</p>
+
 Capability profiles: `figs/radar.png`.
 
 <p align="center">
   <img src="./figs/radar.png" width="90%" alt="Capability profiles of the evaluated LLMs">
 </p>
-
----
-
-## 📈 Visualization
-
-The main figures used in the paper are provided under `figs/`:
-
-| File         | Description                                            |
-| :----------- | :----------------------------------------------------- |
-| `main.png`   | Overview of the PowerBench framework and data pipeline |
-| `task.png`   | Overview of the three benchmark task families          |
-| `radar.png`  | Evaluation and capability comparison visualization     |
 
 ---
 
@@ -424,11 +433,11 @@ rule_metric_stage2.json
 
 Generate hourly device telemetry and rule-aware abnormal scenarios via `powerbench/generation/telemetry/` (see the demo commands above).
 
-Generate equipment archives, inspection reports, and fault reports via `powerbench/generation/documents/` (CLI: `python -m powerbench documents ...`). The pipeline supports LLM-assisted narrative completion via the `--use_llm` flag where available.
+Generate equipment archives, inspection reports, and fault reports via `powerbench/generation/documents/`. Run `python -m powerbench documents --help` to see the available command options. The pipeline supports LLM-assisted narrative completion through the `--use_llm` flag where available.
 
 ---
 
-### 6. Powerbench Tasks (demo corpus)
+### 6. PowerBench Tasks (demo corpus)
 
 ```bash
 python -m powerbench tasks --help
@@ -445,76 +454,3 @@ python -m powerbench tasks build \
   --raw-root data/demo/raw \
   --output-root output/demo_pilot
 ```
-
----
-
-<a id="full-dataset-release"></a>
-
-## 📥 Full Dataset Release
-
-The **code repository** keeps only a slim English demo under `data/demo/`.  
-Root-level full `models/` / `raw/` trees (if present on a developer machine) are **gitignored** and are **not** the published layout.
-
-### Evaluation corpus (`raw`)
-
-HeterogeneousQA **only** reads the frozen corpus via `--raw-root` (inventory, document tools, gold replay). It does **not** use `models/` or `pipeline_generate/`.
-
-After we publish the full English `raw` archive:
-
-```bash
-# 1) download the release asset (name TBD on the official GitHub / data host)
-# 2) extract so you have a directory of type folders, e.g.:
-#      /path/to/raw/0002_pm800kV_high-end_converter_transformer/
-#      /path/to/raw/0007_…/
-#      …
-
-export POWERBENCH_RAW=/path/to/raw
-
-python -m powerbench tasks build \
-  --config configs/main_300.json \
-  --raw-root "$POWERBENCH_RAW" \
-  --output-root output/main_300
-
-python -m powerbench tasks polish --raw-root "$POWERBENCH_RAW" --output-root output/main_300
-python -m powerbench tasks run     --raw-root "$POWERBENCH_RAW" --output-root output/main_300 …
-python -m powerbench tasks evaluate --raw-root "$POWERBENCH_RAW" --output-root output/main_300
-python -m powerbench tasks validate --raw-root "$POWERBENCH_RAW" --output-root output/main_300
-```
-
-If a **frozen** 300-question bundle is shipped with the data release, unpack it into `--output-root` and skip `build` / `polish`, then `run` / `evaluate` / `validate` against the same `$POWERBENCH_RAW`.
-
-### Generation plugins (`models/*/pipeline_generate`) — convention
-
-| Layer | Where | Status in this repo |
-| --- | --- | --- |
-| Shared engine | `powerbench/generation/` | Released |
-| Document generators | `powerbench/generation/documents/` | Released |
-| **Demo type plugins** | `data/demo/models/0002_…/pipeline_generate/` | Released (inspectable end-to-end) |
-| Remaining type plugins | Optional future “plugins-only” archive | Deferred (full telemetry/docs stay in `raw`) |
-
-Plugin contract (per equipment type):
-
-```text
-data/demo/models/<type_id>/
-├── pipeline_generate/
-│   ├── background_generator.py
-│   ├── rule_functions.py
-│   ├── scenario_injectors.py
-│   ├── derived_metrics_impl.py   # optional
-│   ├── generate_per_device_datasets.py
-│   └── run_generate.py
-├── metric_catalog.json
-├── derived_metrics.json
-├── rule_metric_stage1/2.json
-└── *_with_metrics.xlsx / dimensions_summary.json / …
-```
-
-Run the demo generator:
-
-```bash
-TYPE="data/demo/models/0002_pm800kV_high-end_converter_transformer"
-python "$TYPE/pipeline_generate/run_generate.py"
-# or: python -m powerbench generate --type-dir "$TYPE"
-```
-
-We intentionally **do not** ship the full multi-gigabyte `models/` workspace in git; evaluation reproducibility needs **`raw` only**.
